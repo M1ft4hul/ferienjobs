@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\UserM;
 
 
@@ -14,6 +15,12 @@ class Home extends BaseController
     {
         return view('admin');
     }
+
+    public function privacy()
+    {
+        return view('privacy');
+    }
+
     public function data_kandidat()
     {
         $kandidat = $this->UserM->where('level', 1)->orderby('created_at', 'desc')->get()->getResult();
@@ -125,7 +132,7 @@ class Home extends BaseController
         }
     }
     // ubah password end
-    
+
     public function koordinator()
     {
         return view('koordinator');
@@ -148,7 +155,7 @@ class Home extends BaseController
     public function profil()
     {
         $cek = $this->UserM->data_kandidat(session()->get('kode_user'))->getResult();
-        $kredit = $this->UserM->where('kode_user',session()->get('kode_user'))->get()->getRow();
+        $kredit = $this->UserM->where('kode_user', session()->get('kode_user'))->get()->getRow();
         // $total = 0;
         // $total += $kredit->kredit;
         $user = $this->UserM->find(session()->get('id'));
@@ -181,7 +188,7 @@ class Home extends BaseController
         ];
         return view('profil_kandidat', $data);
     }
-    
+
     public function hapus($id)
     {
         $data = [
@@ -191,7 +198,7 @@ class Home extends BaseController
         session()->setFlashdata('hapus', 'Data Terhapus!');
         return redirect()->to(base_url('/login'));
     }
-    
+
     public function simpan_koordinator()
     {
         $email = $this->request->getVar('email', FILTER_SANITIZE_EMAIL);

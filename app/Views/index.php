@@ -754,9 +754,13 @@
                     <div class="col-lg-4 col-md-6 footer-links">
                         <h4>Media Sosial</h4>
                         <p>Follow dan ikuti media sosial kami.</p>
-                        <div class="social-links mt-3"> <a href="https://www.facebook.com/cvgenoverseas" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a> <a href="https://www.instagram.com/cvgencom/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a> <a href="https://www.linkedin.com/in/amsulistiani-ensch-85379824/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a></div>
+                        <div class="social-links mt-3">
+                            <a href="https://www.facebook.com/cvgenoverseas" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+                            <a href="https://www.instagram.com/cvgencom/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
+                            <a href="https://www.linkedin.com/in/amsulistiani-ensch-85379824/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                        </div>
                         <br>
-                        <h4><a href="">Privacy policy</a></h4>
+                        <h4><a href="<?php echo base_url('/privacy') ?>">Privacy policy</a></h4>
                     </div>
                 </div>
             </div>

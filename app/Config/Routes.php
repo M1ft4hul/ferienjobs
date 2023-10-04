@@ -40,12 +40,13 @@ $routes->get('/koordinator', 'Home::koordinator');
 $routes->get('/kandidat', 'Home::kandidat');
 $routes->get('/dokumen', 'Home::dokumen');
 $routes->get('/partner', 'Home::partner');
+$routes->get('/privacy', 'Home::privacy');
 
 $routes->get('/login', 'Home::login');
 // reset password
-$routes->get('/LupaPass' , 'Home::LupaPass');
-$routes->post('pass/reset' , 'Home::send_email');
-$routes->get('/reset_password/new_password' , 'Home::new_password');
+$routes->get('/LupaPass', 'Home::LupaPass');
+$routes->get('/reset_password/new_password', 'Home::new_password');
+$routes->post('pass/reset', 'Home::send_email');
 $routes->post('/reset_password', 'Home::update_password');
 
 $routes->get('/profil', 'Home::profil', ['filter' => 'client']);
