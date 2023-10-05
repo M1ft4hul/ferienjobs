@@ -60,7 +60,8 @@ $routes->post('/cek-login', 'Home::cek_login');
 $routes->get('/admin', 'Home::admin', ['filter' => 'admin']);
 $routes->get('/data-kandidat', 'Home::data_kandidat', ['filter' => 'admin']);
 $routes->get('/data-koordinator', 'Home::data_koordinator', ['filter' => 'admin']);
-$routes->post('/gantistatus', 'Home::gantistatus', ['filter' => 'admin']);
+// $routes->post('/gantistatus', 'Home::gantistatus', ['filter' => 'admin']);
+$routes->post('update_kandidat/(:any)', 'Home::editKandidat/$1', ['filter' => 'admin']);
 $routes->post('/gantistatus-koord', 'Home::gantistatus_koord', ['filter' => 'admin']);
 $routes->post('/hapus-kandidat', 'Home::hapus_kandidat', ['filter' => 'admin']);
 

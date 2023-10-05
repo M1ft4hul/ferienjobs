@@ -85,6 +85,21 @@
                     <h2>Salam, <?= session()->get('nama') ?></h2>
                     <p>Data Kandidat Ferienjobs</p>
                 </div>
+                <!-- allert -->
+                <?php session()->getFlashdata('errors');
+
+                if (session()->getFlashdata('editKandidat')) {
+                    echo '<div id="alert" class="alert alert-success alert-dismissible fade show">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                        </svg>
+                        <strong>Berhasil!</strong>';
+                    echo session()->getFlashdata('editKandidat');
+                    echo '</div>';
+                }
+
+                ?>
+                <!-- row -->
                 <div class="row content">
                     <?php if ($kandidat) { ?>
 
@@ -131,7 +146,10 @@
                                             } else {
                                                 echo '<span class="text-danger">Siap Ajukan Visa</span>';
                                             } ?></td>
-                                        <td><button type="button" class="btn btn-primary" onclick="ganti_status('<?= $x->id ?>')">GANTI STATUS</button><button type="button" class="btn btn-danger ms-1" onclick="hapus('<?= $x->id ?>')">HAPUS</button>
+                                        <td>
+                                            <!-- <button type="button" class="btn btn-primary" onclick="ganti_status('</?= $x->id ?>')">GANTI STATUS</button><button type="button" class="btn btn-danger ms-1" onclick="hapus('</?= $x->id ?>')">HAPUS</button> -->
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editKandidat<?php echo $x->id; ?>">Edit Status</button>
+
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -201,43 +219,48 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
     <div id="preloader"></div> <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 
-    <div class="modal fade" id="gantistatus" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <form action="<?= base_url() ?>/gantistatus" method="post">
-                <?= csrf_field() ?>
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Ganti Status</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            Pilih status kandidat saat ini.
-                            <!-- <label for="ket" class="form-label">Keterangan</label> -->
-                            <!-- <textarea class="form-control" name="ket" id="ket" cols="30" rows="3"></textarea> -->
+    <!-- modal edit status kandidat -->
+    <?php
+    foreach ($kandidat as $b) {
+    ?>
+        <div class="modal fade" id="editKandidat<?php echo $b->id; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <form action="<?php echo base_url('update_kandidat/' . $b->id) ?>" method="post">
+                    <!-- <form action="</?= base_url() ?>/gantistatus" method="post"> -->
+                    <?= csrf_field() ?>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Edit Kode dan Status Kandidat</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="mb-3">
-                            <!-- <span class="text-success">Tentukan status akun ini:</span> -->
-                            <select class="form-select" aria-label="Default select example" name="status_user">
-                                <option selected disabled>Pilih Jenis</option>
-                                <!-- <option value="1" disabled>1. Data Valid</option> -->
-                                <option value="2">1. Biaya Daftar Diterima</option>
-                                <option value="3">2. Dokumen Valid</option>
-                                <option value="4">3. Biaya Submit Dokumen Diterima</option>
-                                <option value="5">4. Proses Submit Dokumen</option>
-                                <option value="6">5. Dokumen Disetujui ZAV Jerman</option>
-                                <option value="7">6. Biaya Approval ZAV Diterima</option>
-                            </select>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                Pilih status kandidat saat ini.
+                            </div>
+                            <div class="mb-3">
+                                <!-- <span class="text-success">Tentukan status akun ini:</span> -->
+                                <select name="status_kandidat" class="form-select" aria-label="Default select example">
+                                    <option selected disabled>Pilih Jenis</option>
+                                    <option value="1">1. Data Pendaftaran Valid</option>
+                                    <option value="2">2. Biaya Pendaftaran Diterima</option>
+                                    <option value="3">3. Dokumen Diterima dan Valid</option>
+                                    <option value="4">4. Biaya Pengiriman Dokumen Diterima</option>
+                                    <option value="5">5. Dokumen Dikirim Ke Jerman</option>
+                                    <option value="6">6. Dokumen Disetujui Zav Jerman</option>
+                                    <option value="7">7. Siap Ajukan Visa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="id_userstatus" class="onIDstatus">
+                            <button type="submit" class="btn btn-success">Simpan</button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="id_userstatus" class="onIDstatus">
-                        <button type="submit" class="btn btn-success">Ubah status</button>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
+    <?php } ?>
+    <!-- end modal edit kandidat -->
 
 
     <div class="modal fade" id="hapus" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -301,6 +324,13 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
                 text: swal,
             })
         }
+    </script>
+
+    <script>
+        setTimeout(function() {
+            var alert = document.getElementById('alert');
+            alert.style.display = 'none';
+        }, 9000);
     </script>
 </body>
 

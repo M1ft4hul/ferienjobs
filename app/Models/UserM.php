@@ -12,6 +12,14 @@ class UserM extends Model
     // Dates
     protected $useTimestamps = true;
 
+    // ubah koordinator / kandidat
+    public function editData($data)
+    {
+        $this->db->table('tb_user')
+            ->where('id', $data['id'])
+            ->update($data);
+    }
+    
     public function data_kandidat($kode_user)
     {
         return $this->db->table('tb_user')

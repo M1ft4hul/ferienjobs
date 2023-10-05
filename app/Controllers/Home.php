@@ -33,9 +33,10 @@ class Home extends BaseController
     {
         // $koordinator = $this->UserM->where('level', 0)->get()->getResult();
         $koordinator = $this->UserM->data_koord()->getResult();
-
+        $user = $this->UserM->find(session()->get('id'));
         $data = [
             'koordinator' => $koordinator,
+            'user' => $user,
         ];
         return view('data_koordinator', $data);
     }
@@ -233,57 +234,69 @@ class Home extends BaseController
         $this->session->setFlashdata('pesan', "Berhasil mendaftar, harap menunggu verifikasi.");
         return redirect()->to('/login');
     }
-    public function gantistatus()
+    public function editKandidat($id)
     {
-
-        $status = $this->request->getVar('status_user'); //0-2
-        if ($status == '2') {
-            $kredit = '10000';
-        } elseif ($status == '4') {
-            $kredit = '130000';
-        } elseif ($status == '7') {
-            $kredit = '230000';
-        } else {
-            $kredit = '0';
-        }
-        $id = $this->request->getVar('id_userstatus'); //id user kandidat
-        $cek = $this->UserM->where('id', $id)->get()->getRow(); //cek di tabel user
-        if (!$cek) {
-            session()->destroy();
-            return redirect()->to('/');
-        }
-
-        $cek_kandidat = $this->SaldoM->where('id', $id)->get()->getRow();
-
-
-        if (!$cek_kandidat) {
-            $this->SaldoM->insert([
-                'id' => $id,
-                'kode_koord' => $cek->kode_upline,
-                'saldo' => $kredit,
-            ]);
-        } else {
-            $this->SaldoM->save([
-                'id' => $id,
-                'saldo' => $kredit,
-            ]);
-        }
-        $this->UserM->save([
+        $data = [
             'id' => $id,
-            'status_kandidat' => $status,
-        ]);
+            'status_kandidat' => $this->request->getPost('status_kandidat'),
+        ];
+        $this->UserM->editData($data);
+        session()->set('user', $data);
 
-        $cek_user = $this->UserM->where('kode_user', $cek->kode_upline)->get()->getRow();
-        $hitung = $this->UserM->saldo($cek_user->kode_user)->get()->getRow();
-        $total = 0;
-        $total += $hitung->saldo;
-        $this->UserM->save([
-            'id' => $cek_user->id,
-            'kredit' => $total,
-        ]);
-
-        return redirect()->to('/data-kandidat ');
+        session()->setFlashdata('editKandidat', 'Data berhasil Di Edit !!!');
+        return redirect()->to(base_url('/data-kandidat'));
     }
+    // public function gantistatus()
+    // {
+
+    //     $status = $this->request->getVar('status_user'); //0-2
+    //     if ($status == '2') {
+    //         $kredit = '10000';
+    //     } elseif ($status == '4') {
+    //         $kredit = '130000';
+    //     } elseif ($status == '7') {
+    //         $kredit = '230000';
+    //     } else {
+    //         $kredit = '0';
+    //     }
+    //     $id = $this->request->getVar('id_userstatus'); //id user kandidat
+    //     $cek = $this->UserM->where('id', $id)->get()->getRow(); //cek di tabel user
+    //     if (!$cek) {
+    //         session()->destroy();
+    //         return redirect()->to('/');
+    //     }
+
+    //     $cek_kandidat = $this->SaldoM->where('id', $id)->get()->getRow();
+
+
+    //     if (!$cek_kandidat) {
+    //         $this->SaldoM->insert([
+    //             'id' => $id,
+    //             'kode_koord' => $cek->kode_upline,
+    //             'saldo' => $kredit,
+    //         ]);
+    //     } else {
+    //         $this->SaldoM->save([
+    //             'id' => $id,
+    //             'saldo' => $kredit,
+    //         ]);
+    //     }
+    //     $this->UserM->save([
+    //         'id' => $id,
+    //         'status_kandidat' => $status,
+    //     ]);
+
+    //     $cek_user = $this->UserM->where('kode_user', $cek->kode_upline)->get()->getRow();
+    //     $hitung = $this->UserM->saldo($cek_user->kode_user)->get()->getRow();
+    //     $total = 0;
+    //     $total += $hitung->saldo;
+    //     $this->UserM->save([
+    //         'id' => $cek_user->id,
+    //         'kredit' => $total,
+    //     ]);
+
+    //     return redirect()->to('/data-kandidat ');
+    // }
     public function gantistatus_koord()
     {
 
