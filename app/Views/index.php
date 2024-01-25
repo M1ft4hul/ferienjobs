@@ -46,12 +46,12 @@
 
 <body>
     <div class="swal" data-swal="<?= session()->get('pesan'); ?>"></div>
-    <div class="modal fade" id="popup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+     <div class="modal fade" id="popup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header modalpopup">
                     <a href="<?= base_url() ?>/kandidat">
-                        <img src="<?= base_url() ?>/assets/img/banner2.jpg" alt="rentalmo" class="img-fluid gambarpopup">
+                        <img src="<?= base_url() ?>/assets/img/Banner3.png" alt="rentalmo" class="img-fluid gambarpopup">
                     </a>
                     <button type="button" class="btn-close aaa" data-bs-dismiss="modal"></button>
                 </div>
@@ -69,8 +69,8 @@
                     <li><a class="nav-link scrollto" href="<?= base_url() ?>#about">Tentang</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url() ?>#why-us">Keuntungan</a></li>
                     <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
-                    <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#team">Tim</a></li>
-                    <li><a class="nav-link scrollto" href="<?= base_url() ?>/partner">Partner</a></li>
+                    <!--<li><a class="nav-link scrollto" href="<?= base_url('/') ?>#team">Tim</a></li>-->
+                    <!--<li><a class="nav-link scrollto" href="</?= base_url() ?>/partner">Partner</a></li>-->
                     <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#faq">FAQ</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url() ?>/dokumen">Dokumen</a></li>
                     <!--<li><a class="nav-link scrollto" href="<?= base_url('/') ?>#bibaya">Biaya</a></li>-->
@@ -122,19 +122,19 @@
         </div>
     </section>
     <main id="main">
-        <section id="clients" class="clients section-bg">
-            <div class="container">
-                <div class="row d-flex align-items-center justify-content-around flex-wrap" data-aos="zoom-in">
-                    <img src="<?= base_url() ?>/assets/img/clients/client-1.png" class="img-fluid " style="width:5%" alt="">
-                    <img src="<?= base_url() ?>/assets/img/clients/client-2.png" class="img-fluid " style="width:5%" alt="">
+        <!--<section id="clients" class="clients section-bg">-->
+        <!--    <div class="container">-->
+        <!--        <div class="row d-flex align-items-center justify-content-around flex-wrap" data-aos="zoom-in">-->
+        <!--            <img src="<?= base_url() ?>/assets/img/clients/client-1.png" class="img-fluid " style="width:5%" alt="">-->
+        <!--            <img src="<?= base_url() ?>/assets/img/clients/client-2.png" class="img-fluid " style="width:5%" alt="">-->
                     <!--<img src="<?= base_url() ?>/assets/img/clients/client-3.png" class="img-fluid " style="width:5%" alt="">-->
-                    <img src="<?= base_url() ?>/assets/img/clients/client-4.png" class="img-fluid " style="width:5%" alt="">
-                    <img src="<?= base_url() ?>/assets/img/clients/client-5.png" class="img-fluid " style="width:5%" alt="">
-                    <img src="<?= base_url() ?>/assets/img/clients/client-6.png" class="img-fluid " style="width:5%" alt="">
+        <!--            <img src="<?= base_url() ?>/assets/img/clients/client-4.png" class="img-fluid " style="width:5%" alt="">-->
+        <!--            <img src="<?= base_url() ?>/assets/img/clients/client-5.png" class="img-fluid " style="width:5%" alt="">-->
+        <!--            <img src="<?= base_url() ?>/assets/img/clients/client-6.png" class="img-fluid " style="width:5%" alt="">-->
                     <!--<img src="<?= base_url() ?>/assets/img/clients/client-7.png" class="img-fluid " style="width:5%" alt="">-->
-                </div>
-            </div>
-        </section>
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</section>-->
         <section id="about" class="about">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
@@ -178,7 +178,7 @@
                                 </li>
                                 <li> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span>Resmi<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                                     <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                                        <p>Karena program ini resmi dan bekerjasama dengan Pemerintah Indonesia dan Jerman, serta kampus atau Universitas resmi, maka validasi dan otentikasi peserta menjadi prioritas utama termasuk ijin resmi dari Universitas.</p>
+                                        <p>Program ini adalah kerjasama universitas dan agency di Indonesia dan Jerman. Validasi dan otentikasi peserta menjadi prioritas utama termasuk ijin resmi dari universitas</p>
                                     </div>
                                 </li>
                                 <li> <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span>Sertifikat<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
@@ -199,7 +199,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
+                    <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/why-usss.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
                 </div>
             </div>
         </section>
@@ -364,125 +364,127 @@
                 </div>
             </div>
         </section>
-        <section id="team" class="team section-bg">
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h2>Tim Ferienjobs</h2>
-                    <p>Tim kami siap membantu Mahasiswa/i Indonesia meraih kesempatan dan peluang kerja di Jerman.</p>
-                </div>
+        <!--<section id="team" class="team section-bg">-->
+        <!--    <div class="container" data-aos="fade-up">-->
+        <!--        <div class="section-title">-->
+        <!--            <h2>Tim Ferienjobs</h2>-->
+        <!--            <p>Tim kami siap membantu Mahasiswa/i Indonesia meraih kesempatan dan peluang kerja di Jerman.</p>-->
+        <!--        </div>-->
 
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-7.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Enik waldkönig</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/profile.php?id=100027540412731" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="#" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-1.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Amsulistiani</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/amsulistiani" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/amsulistiani" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-9.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Ernesia Octavia</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="#" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/nezzviana/" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-10.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Rinda Setiawan</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/riendshaoran" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/riendshaoran/" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-2.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Sepno Warini</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/sepnowarini" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/sepnowrn" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-3.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Tri Pramedi A</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/pramedh" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/pramedy" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-6.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Akbar</h4>
-                                <div class="social"> <a href="https://twitter.com/kodokrawa" target="_blank"><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/akbar.rentalmo/" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/akbar_rentalmo/" target="_blank"><i class="ri-instagram-fill"></i></a> <a href="https://www.linkedin.com/in/akbar-rentalmo/" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-4.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Aisyah Welina</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/aisyah.jga" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/aisyah_welin" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-5.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Gufran</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/raan.gufraan.7" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/gufran.lmth" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-8.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Zuardin</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/zuardin.arif" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/zuardinarif" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-11.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Shofa </h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/shofa.smanel" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/shofasmanel/" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12 mt-4">
-                        <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-12.jpg" class="img-fluid tim" alt=""></div>
-                            <div class="member-info">
-                                <h4>Abdul Azis</h4>
-                                <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="#" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/zuardinarif" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!--        <div class="row">-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-7.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Enik waldkönig</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/profile.php?id=100027540412731" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="#" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-1.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Amsulistiani</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/amsulistiani" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/amsulistiani" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-9.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Ernesia Octavia</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="#" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/nezzviana/" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-10.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Rinda Setiawan</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/riendshaoran" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/riendshaoran/" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-2.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Sepno Warini</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/sepnowarini" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/sepnowrn" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-3.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Tri Pramedi A</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/pramedh" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/pramedy" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-6.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Akbar</h4>-->
+        <!--                        <div class="social"> <a href="https://twitter.com/kodokrawa" target="_blank"><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/akbar.rentalmo/" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/akbar_rentalmo/" target="_blank"><i class="ri-instagram-fill"></i></a> <a href="https://www.linkedin.com/in/akbar-rentalmo/" target="_blank"> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-4.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Aisyah Welina</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/aisyah.jga" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/aisyah_welin" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-5.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Gufran</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/raan.gufraan.7" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/gufran.lmth" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-8.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Zuardin</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/zuardin.arif" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/zuardinarif" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-11.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Shofa </h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="https://www.facebook.com/shofa.smanel" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/shofasmanel/" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--            <div class="col-lg-3 col-md-6 col-12 mt-4">-->
+        <!--                <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">-->
+        <!--                    <div class="pic"><img src="<?= base_url() ?>/assets/img/team/team-12.jpg" class="img-fluid tim" alt=""></div>-->
+        <!--                    <div class="member-info">-->
+        <!--                        <h4>Abdul Azis</h4>-->
+        <!--                        <div class="social"> <a href=""><i class="ri-twitter-fill"></i></a> <a href="#" target="_blank"><i class="ri-facebook-fill"></i></a> <a href="https://www.instagram.com/zuardinarif" target="_blank"><i class="ri-instagram-fill"></i></a> <a href=""> <i class="ri-linkedin-box-fill"></i> </a></div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</section>-->
+        
+        
         <!--<section id="biaya" class="pricing">-->
         <!--    <div class="container" data-aos="fade-up">-->
         <!--        <div class="section-title">-->
@@ -609,10 +611,10 @@
                                 <p>Berikut tips trik yang mungkin akan bermanfaat:</p>
                                 <ol>
                                     <li class="p-0">Periode oktober sampai desember masa tinggal anda di Jerman adalah periode musim dingin. Jika anda tidak memiliki cukup jaket. Dapat memanfaatkan aplikasi ebay kleinenzeigen masuk kategori vershcenken ketikkan jacken, maka anda akan melihat orang-orang di Jerman yang tinggal dekat dengan anda yang hendak memberikan jaketnya secara cuma-cuma.<br>Trik ini juga berlaku jika anda hendak mencari sepatu, tas, mainan, elektronik, sepeda, rice cooker, dan masih banyak lainnya.</li>
-                                    <li class="p-0">Untuk uang kecil tambahan, anda dapat melakukan hal ini:<br>
-                                        a. Mengumpulkan botol plastik dan kaleng dengan logo pfand, kemudian menguangkannya ke mesin penampung sampah pfand. Tersedia hampir di setiap supermarket dan store<br>
-                                        b. Menolong tetangga yang membutuhkan melalui aplikasi ebay kleinenzeigen (dapat didownload di playstore), pilih kategori nachbarschaftshilfe, maka akan muncul tetangga mana saja yang membutuhkan pertolongan. Dapat anda chat. Biasanya pertolongan pertolongan kecil untuk jagakan anak, potong rumput, ajak binatang piaraan jalan jalan, dll, akan dibayar 10 - 15 euro per jam.
-                                    </li>
+                                    <!--<li class="p-0">anda dapat melakukan hal ini:<br>-->
+                                    <!--    a. Mengumpulkan botol plastik dan kaleng dengan logo pfand, kemudian menguangkannya ke mesin penampung sampah pfand. Tersedia hampir di setiap supermarket dan store<br>-->
+                                    <!--    b. Menolong tetangga yang membutuhkan melalui aplikasi ebay kleinenzeigen (dapat didownload di playstore), pilih kategori nachbarschaftshilfe, maka akan muncul tetangga mana saja yang membutuhkan pertolongan. Dapat anda chat. Biasanya pertolongan pertolongan kecil untuk jagakan anak, potong rumput, ajak binatang piaraan jalan jalan, dll, akan dibayar 10 - 15 euro per jam.-->
+                                    <!--</li>-->
                                 </ol>
                             </div>
                         </li>
@@ -635,7 +637,8 @@
                         </li>
                         <li data-aos="fade-up" data-aos-delay="300"> <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-12" class="collapsed">Apakah saya dapat peroleh pajak saya kembali?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                             <div id="faq-list-12" class="collapse" data-bs-parent=".faq-list">
-                                <p>Setelah peroleh slip gaji terakhir di 21 Januari, anda dianjurkan claim pajak anda kembali melalui link berikut: <a href="https://www.taxback.com/en/?utm_ref=sinarharapanbangsaku" target="_blank">LINK INFORMASI</a></p>
+                                <p>Setelah peroleh slip gaji terakhir di 21 Januari, anda dianjurkan claim pajak anda kembali</p>
+                                <!--<a href="https://www.taxback.com/en/?utm_ref=sinarharapanbangsaku" target="_blank">LINK INFORMASI</a>-->
                             </div>
                         </li>
                         <!--<h5 class="mt-3">Sebagai Koordinator</h5>-->
@@ -660,7 +663,7 @@
                                 <ol>
                                     <li class="m-0 p-0">Menjadi salah satu universitas yang dapat memberangkatkan mahasiswanya magang ke Jerman</li>
                                     <li class="m-0 p-0">Program ini akan berdampak pada reputasi universitas penyelenggara</li>
-                                    <li class="m-0 p-0">Pihak fakultas/jurusan/universitas akan memperoleh dana CSR dari penyelenggara/konsultan di(cvgen) yang besarnya tergantung dari jumlah mahasiswa dari universitas tersebut. ( hanya untuk universitas Yang mengirimkan mahasiswa lebih dari 300 mahasiswa) </li>
+                                    <!--<li class="m-0 p-0">Pihak fakultas/jurusan/universitas akan memperoleh dana CSR dari penyelenggara/konsultan di(cvgen) yang besarnya tergantung dari jumlah mahasiswa dari universitas tersebut. ( hanya untuk universitas Yang mengirimkan mahasiswa lebih dari 300 mahasiswa) </li>-->
                                 </ol>
                             </div>
                         </li>
@@ -686,11 +689,11 @@
                 <div class="row">
                     <div class="col-lg-5 d-flex align-items-stretch">
                         <div class="info">
-                            <!--                            <div class="address"> <i class="bi bi-geo-alt"></i>-->
-                            <!--                                <h4>Alamat:</h4>-->
-                            <!--                                <p>Jl. Elang Blok D No.1, BTN Medibrata Indah,-->
-                            <!--Kota Baubau, Sulawesi Tenggara, 93157</p>-->
-                            <!--                            </div>-->
+<!--                            <div class="address"> <i class="bi bi-geo-alt"></i>-->
+<!--                                <h4>Alamat:</h4>-->
+<!--                                <p>Jl. Elang Blok D No.1, BTN Medibrata Indah,-->
+<!--Kota Baubau, Sulawesi Tenggara, 93157</p>-->
+<!--                            </div>-->
                             <div class="email"> <i class="bi bi-envelope"></i>
                                 <h4>Email:</h4>
                                 <p><a href="#">ami@cv-gen.com</a></p>
@@ -703,7 +706,7 @@
                         </div>
                     </div>
                     <!--<div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">-->
-
+                    
                     <!--    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d782.4021303295126!2d122.61858765873644!3d-5.472594798293863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2da4776bcfd76a79%3A0x7c6732f9d55c0b83!2sAmsulistiani!5e0!3m2!1sid!2sid!4v1670745712298!5m2!1sid!2sid" width="100%" height="350px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
                     <!--</div>-->
                 </div>
@@ -728,7 +731,7 @@
                     <div class="col-lg-8 col-md-6 footer-contact">
                         <h3>Ferienjobs Indonesia</h3>
                         <!--<p>Jl. Elang Blok D No.1, BTN Medibrata Indah, Kota Baubau, Sulawesi Tenggara, 93157-->
-                        <br><br> <strong>Phone:</strong>+6285298649951<br> <strong>Email:</strong> <a href="#">ami@cv-gen.com</a><br>
+                            <br><br> <strong>Phone:</strong>+6285298649951<br> <strong>Email:</strong> <a href="#">ami@cv-gen.com</a><br>
                         </p>
                     </div>
                     <!-- <div class="col-lg-3 col-md-6 footer-links">
@@ -754,10 +757,7 @@
                     <div class="col-lg-4 col-md-6 footer-links">
                         <h4>Media Sosial</h4>
                         <p>Follow dan ikuti media sosial kami.</p>
-                        <div class="social-links mt-3">
-                            <a href="https://www.facebook.com/cvgenoverseas" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
-                            <a href="https://www.instagram.com/cvgencom/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/amsulistiani-ensch-85379824/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                        <div class="social-links mt-3"> <a href="https://www.facebook.com/cvgenoverseas" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a> <a href="https://www.instagram.com/cvgencom/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a> <a href="https://www.linkedin.com/in/amsulistiani-ensch-85379824/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
                         </div>
                         <br>
                         <h4><a href="<?php echo base_url('/privacy') ?>">Privacy policy</a></h4>

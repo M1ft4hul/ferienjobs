@@ -12,27 +12,73 @@ class UserM extends Model
     // Dates
     protected $useTimestamps = true;
 
-    // ubah koordinator / kandidat
+    // ubah data koordinator / kandidat
     public function editData($data)
     {
         $this->db->table('tb_user')
             ->where('id', $data['id'])
             ->update($data);
     }
-    
-    public function data_kandidat($kode_user)
+
+    // public function data_kandidat($kode_user)
+    // {
+    //     return $this->db->table('tb_user')
+    //         ->select('kode_user,kode_upline,nama,wa,jk,universitas,fakultas,provinsi,status_kandidat')
+    //         ->where(['kode_upline' => $kode_user, 'aktif !=' => '2'])
+    //         ->get();
+    // }
+
+    // menampilkan data kandidat berdasarkan kode usernya
+    public function dataKandidat($kode_user)
     {
-        return $this->db->table('tb_user')
+        $query = $this->db->table('tb_user')
             ->select('kode_user,kode_upline,nama,wa,jk,universitas,fakultas,provinsi,status_kandidat')
             ->where(['kode_upline' => $kode_user, 'aktif !=' => '2'])
             ->get();
+
+        return $query->getResult();
     }
+    // public function data_koord()
+    // {
+    //     return $this->db->table('tb_user')
+    //         ->where(['aktif' => 0, 'level' => 0])
+    //         ->get();
+    // }
+
+    // //menampilkan data koordinator dari data aktif dan level
     public function data_koord()
     {
         return $this->db->table('tb_user')
-            ->where(['aktif' => 0, 'level' => 0])
+            ->where('level', 0)
             ->get();
     }
+
+    // mengambil jumlah kandidat yang memiliki level 1 dari tabel tb_user
+    public function totalSemuaKandidat()
+    {
+        $query = $this->db->table('tb_user')
+            ->selectCount('id')
+            ->where('kode_upline IS NOT NULL')
+            ->where('level', 1)
+            ->get()
+            ->getRow();
+
+        return $query->id;
+    }
+
+    // mengambil jumlah koordinator yang memiliki level 1 dari tabel tb_user
+    public function totalSemuaKoordinator()
+    {
+        $query = $this->db->table('tb_user')
+            ->selectCount('id')
+            ->where('kode_user IS NOT NULL')
+            ->where('level', 0)
+            ->get()
+            ->getRow();
+
+        return $query->id;
+    }
+
     public function total_uang($kode_user)
     {
         return $this->db->table('tb_user')
@@ -58,8 +104,8 @@ class UserM extends Model
             ->groupBy('kode_koord')
             ->where('kode_koord', $kode_user);
     }
-    
-     public function deleteData($data)
+
+    public function deleteData($data)
     {
         $this->db->table('tb_user')
             ->where('id', $data['id'])

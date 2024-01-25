@@ -54,9 +54,10 @@
             <h1 class="logo me-auto"><a href="/">FERIENJOBS<br><small style="font-size: .8rem;">Kerja di Musim Liburan</small></a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto " href="<?= base_url('/') ?>">Home</a></li>
+                    <li><a class="nav-link scrollto " href="<?= base_url('/admin') ?>">Home</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/data-kandidat') ?>">Kandidat</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/data-koordinator') ?>">Koordinator</a></li>
+                    <li><a class="nav-link scrollto" href="<?= base_url('/profile-admin') ?>">Profile</a></li>
                     <li><a class="getstarted scrollto" href="<?= base_url() ?>/logout">Logout</a></li>
                 </ul> <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -76,15 +77,28 @@
             </div>
     </section>
     <main id="main">
-        <section id="clients" class="clients section-bg">
-
-        </section>
-        <section class="about">
+        <section class="about" style="margin-top: 60px;">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>Salam, <?= session()->get('nama') ?></h2>
-                    <p>Data Koordinator Ferienjobs</p>
+                    <h2>Data Koordinator</h2>
+                    <!-- <h2>Salam, </?= session()->get('nama') ?></h2> -->
+                    <!-- <p>Data Koordinator Ferienjobs</p> -->
                 </div>
+                <!-- allert -->
+                <?php session()->getFlashdata('errors');
+
+                if (session()->getFlashdata('editKoordinator')) {
+                    echo '<div id="alert" class="alert alert-success alert-dismissible fade show">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                            <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                        </svg>
+                        <strong>Berhasil!</strong>';
+                    echo session()->getFlashdata('editKoordinator');
+                    echo '</div>';
+                }
+
+                ?>
+                <!-- row -->
                 <div class="row content">
                     <?php if ($koordinator) { ?>
 
@@ -97,7 +111,6 @@
                                     <th>Email</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Pekerjaan</th>
-                                    <!--<th>Saldo</th>-->
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -111,15 +124,19 @@
                                         <td><?= $x->email ?></td>
                                         <td><?= $x->jk ?></td>
                                         <td><?= $x->pekerjaan ?></td>
-                                        <!--<td> $x->kredit </td>-->
-                                        <td><?php if ($x->aktif == 0) {
-                                                echo '<span class="text-success">AKTIF</span>';
+                                        <td>
+                                            <?php if ($x->aktif == 0) {
+                                                echo '<span class="badge bg-primary text-with">AKTIF</span>';
                                             } elseif ($x->aktif == 1) {
-                                                echo '<span class="text-danger">NONAKTIF</span>';
+                                                echo '<span class="badge bg-danger text-with">NONAKTIF</span>';
                                             } else {
-                                                echo '<span class="text-danger">AKUN PALSU</span>';
-                                            } ?></td>
-                                        <td><button type="button" class="btn btn-primary" onclick="ganti_status('<?= $x->id ?>')">GANTI STATUS</button></td>
+                                                echo '<span class="badge bg-dark text-with">AKUN PALSU</span>';
+                                            } ?>
+                                        </td>
+                                        <td>
+                                            <!-- <button type="button" class="btn btn-primary" onclick="ganti_status('</?= $x->id ?>')">GANTI STATUS</button> -->
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editData<?php echo $x->id; ?>">Update Data Koordinator</button>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
@@ -128,22 +145,10 @@
                         echo 'Belum ada data kandidat';
                     } ?>
                 </div>
+            </div>
         </section>
-
-
     </main>
     <footer id="footer">
-        <div class="footer-newsletter">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <!-- <div class="col-lg-6">
-                        <h4>Join Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                        <form action="" method="post"> <input type="email" name="email"><input type="submit" value="Subscribe"></form>
-                    </div> -->
-                </div>
-            </div>
-        </div>
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -187,8 +192,60 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
     </footer>
     <div id="preloader"></div> <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <form action="<?= base_url() ?>/gantistatus-koord" method="post">
-        <?= csrf_field() ?>
+    <!-- modal edit status koordinator dan ubah kode koordinator -->
+    <?php
+    foreach ($koordinator as $kordinir) : ?>
+
+        <?php
+        // Tentukan kelas warna badge berdasarkan level status
+        $status_aktif = $kordinir->aktif;
+        $badge_color_class = ($status_aktif == 0) ? 'bg-primary' : 'bg-danger';
+        ?>
+        <div class="modal fade" id="editData<?php echo $kordinir->id; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Ganti Status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="<?php echo base_url('update_koordinator/' . $kordinir->id) ?>" method="post" class="needs-validation" novalidate>
+                        <div class="modal-body">
+                            <div class="row mb-3">
+                                <label for="colFormLabel" class="col-sm-4 col-form-label">Nama Koordinator</label>
+                                <div class="col-sm-7">
+                                    <span class="badge <?php echo $badge_color_class; ?>"> <?php echo $kordinir->nama; ?></span>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="colFormLabel" class="col-sm-4 col-form-label"> Pilih status Akun</label>
+                                <div class="col-sm-7">
+                                    <select name="aktif" class="form-select" aria-label="Default select example">
+                                        <option selected disabled>Pilihan Status Akun</option>
+                                        <option value="0">Aktif</option>
+                                        <option value="1">Nonaktif</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="colFormLabel" class="col-sm-4 col-form-label"> Kode Koordinator</label>
+                                <div class="col-sm-7">
+                                    <input type="text" name="kode_user" value="<?php echo $kordinir->kode_user ?>" class="form-control" id="validationCustom06" placeholder="Silahkan Isi kode koordinator" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="id_userstatus" class="onIDstatus">
+                            <button type="submit" class="btn btn-success">Ubah status</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+    <!-- end modal -->
+
+    <!-- <form action="</?= base_url() ?>/gantistatus-koord" method="post">
+        </?= csrf_field() ?>
         <div class="modal fade" id="gantistatus" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -199,11 +256,8 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
                     <div class="modal-body">
                         <div class="mb-3">
                             Pilih status Akun saat ini.
-                            <!-- <label for="ket" class="form-label">Keterangan</label> -->
-                            <!-- <textarea class="form-control" name="ket" id="ket" cols="30" rows="3"></textarea> -->
                         </div>
                         <div class="mb-3">
-                            <!-- <span class="text-success">Tentukan status akun ini:</span> -->
                             <select class="form-select" aria-label="Default select example" name="status_user">
                                 <option selected disabled>Pilih Jenis</option>
                                 <option value="0">Aktif</option>
@@ -218,7 +272,7 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
                 </div>
             </div>
         </div>
-    </form>
+    </form> -->
 
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 
@@ -250,6 +304,13 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
                 text: swal,
             })
         }
+    </script>
+
+    <script>
+        setTimeout(function() {
+            var alert = document.getElementById('alert');
+            alert.style.display = 'none';
+        }, 10000);
     </script>
 </body>
 

@@ -142,13 +142,13 @@
 
                 <p>You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites. What Are Cookies?</p>
                 <br><br>
-                <div class="section-title">
-                    <h2>Children's Information</h2>
-                </div>
-                <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
+                <!--<div class="section-title">-->
+                <!--    <h2>Children's Information</h2>-->
+                <!--</div>-->
+                <!--<p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>-->
 
-                <p> Ferienjobs does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
-                <br><br>
+                <!--<p> Ferienjobs does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>-->
+                <!--<br><br>-->
                 <div class="section-title">
                     <h2>Children's Information</h2>
                 </div>

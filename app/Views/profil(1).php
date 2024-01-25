@@ -33,8 +33,8 @@
 
         .poin {
             background-color: greenyellow;
-            height: 100px;
-            width: 740px;
+            margin: 0 10px 10px;
+            width: -webkit-fill-available;
             padding: 10px 10px 0px;
             border-radius: 5px;
         }
@@ -58,8 +58,26 @@
                     <li><a class="nav-link scrollto" href="<?= base_url() ?>/partner">Partner</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#faq">FAQ</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url() ?>/dokumen">Dokumen</a></li>
-                    <li><a class="nav-link scrollto" href="<?= base_url('/profileKoordinator') ?>">Profile</a></li>
+                    <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#biaya">Biaya</a></li>
+                    <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a> -->
+                    <!-- <ul>
+                            <li><a href="#">Drop Down 1</a></li>
+                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                                <ul>
+                                    <li><a href="#">Deep Drop Down 1</a></li>
+                                    <li><a href="#">Deep Drop Down 2</a></li>
+                                    <li><a href="#">Deep Drop Down 3</a></li>
+                                    <li><a href="#">Deep Drop Down 4</a></li>
+                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Drop Down 2</a></li>
+                            <li><a href="#">Drop Down 3</a></li>
+                            <li><a href="#">Drop Down 4</a></li>
+                        </ul> -->
+                    <!-- </li> -->
                     <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#contact">Kontak</a></li>
+                    <!-- <li><a class="getstarted scrollto" href="whatsapp://send?text=Salam Admin ferienjobs, saya membutuhkan informasi lengkap, apakah ada waktu untuk konsultasi?.&phone=+6285298649951&abid=+6285298649951'">Daftar</a></li> -->
                     <li>
                         <?php if (session()->get('logged_in') == true) { ?>
                             <a class="getstarted scrollto" href="<?= base_url() ?>/logout">Logout</a>
@@ -90,111 +108,122 @@
         </section>
         <section class="about">
             <div class="container" data-aos="fade-up">
-                <div class="row gutters-sm">
-                    <!-- kotak nama -->
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
-                                    <div class="mt-3">
-                                        <h4><?php echo $user['nama']; ?></h4>
-                                        <hr>
-                                        <p class="text-muted font-size-sm"><?php echo $user['email']; ?></p>
-                                        <hr>
-                                        <p class="text-muted font-size-sm"><?php echo $user['wa']; ?></p>
-                                        <hr>
-                                        <p class="text-secondary mb-1">
-                                            <?php if ($userLevel == 0) {
-                                                echo '<span class="badge bg-success text-with"> Koordinator </span>';
-                                            } elseif ($userLevel == 1) {
-                                                echo '<span class="badge bg-warning text-with"> Kandidat </span>';
-                                            } elseif ($userLevel == 9) {
-                                                echo '<span class="badge bg-primary text-with"> Administrator </span>';
-                                            } else {
-                                                echo 'Tidak Diketahui';
-                                            } ?>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- status -->
-                    <div class="col-md-8">
-                        <div class="mb-4">
-                            <div class="poin">
-                                <h4>
-                                    <!--Saldo Anda : IDR. </?= $kredit->kredit; ?>,- <span class="badge rounded-pill text-bg-dark" data-bs-toggle="modal" data-bs-target="#saldo" style="cursor: pointer;">Info</span><br>-->
-                                    Kode Anda : <?= session()->get('kode_user') ?> <span class="badge rounded-pill text-bg-dark" data-bs-toggle="modal" data-bs-target="#kode_koord" style="cursor: pointer;">?</span><br>
-                                    <div style="margin-top: 10px;" class="d-flex justify-content-center justify-content-lg-start">
-                                        <a href="whatsapp://send?text=Salam Admin ferienjobs, saya membutuhkan informasi, apakah ada waktu untuk konsultasi?.&phone=+6285298649951&abid=+6285298649951'" class="btn btn-success" style="border-radius: 10px;">Hubungi Admin</a>
-                                        <button type="submit" id="deleteUser" class="btn btn-danger ms-2" style="border-radius: 10px;">Hapus Akun</button>
-                                    </div>
-                                </h4>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 25px; text-align: center;">Data Kandidat Anda</h4>
-                        <!-- tabel kandidat -->
-                        <div class="mb-3">
-                            <div class="row">
-                                <?php if ($kandidat) { ?>
-                                    <table class="table table-bordered display responsive nowrap" id="kandidat" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>WA</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Universitas</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <?php $no = 1;
-                                            foreach ($kandidat as $x) { ?>
-                                                <tr>
-                                                    <td><?= $no++ ?></td>
-                                                    <td><?= $x->nama ?></td>
-                                                    <td><a href="whatsapp://send?text=Salam <?= $x->nama ?>, Terimakasih telah bergabung di Program Ferienjobs.&phone=+62<?= $x->wa ?>&abid=+62<?= $x->wa ?>" class="btn btn-success btn-sm"><?= $x->wa ?></a></td>
-                                                    <td><?= $x->jk ?></td>
-                                                    <td><?= $x->universitas ?></td>
-                                                    <td><?php if ($x->status_kandidat == 0) {
-                                                            echo '<span class="badge bg-danger text-light"> SEDANG DIVERIFIKASI</span>';
-                                                        } elseif ($x->status_kandidat == 1) {
-                                                            echo '<span class="badge bg-info text-light">1. DATA PENDAFTARAN VALID</span><br><span class="text-info">(Menunggu Pembayaran Biaya Pendaftaran)</span>';
-                                                        } elseif ($x->status_kandidat == 2) {
-                                                            echo '<span class="badge bg-success text-light">2. BIAYA PENDAFTARAN DITERIMA</span><br><span class="text-success">(Menunggu Dokumen dari Kandidat)</span>';
-                                                        } elseif ($x->status_kandidat == 3) {
-                                                            echo '<span class="badge bg-warning text-light">3. DOKUMEN DITERIMA dan VALID</span><br><span class="text-warning">(Menunggu Pembayaran Biaya Pengiriman Dokumen dari Kandidat)</span>';
-                                                        } elseif ($x->status_kandidat == 4) {
-                                                            echo '<span class="badge bg-primary text-light">4. BIAYA PENGIRIMAN DOKUMEN DITERIMA</span><br><span class="text-primary">(Silahkan proses pengiriman dokumen ke ZAV Jerman)</span>';
-                                                        } elseif ($x->status_kandidat == 5) {
-                                                            echo '<span class="badge bg-secondary text-light">5. DOKUMEN DIKIRIM KE JERMAN</span><br><span class="text-secondary">(Menunggu Approval ZAV Jerman)</span>';
-                                                        } elseif ($x->status_kandidat == 6) {
-                                                            echo '<span class="badge bg-warning text-dark">6. DOKUMEN DISETUJUI ZAV JERMAN</span><br><span class="text-warning">(Menunggu Pembayaran Dokumen Approval ZAV Jerman dari Kandidat)</span>';
-                                                        } else {
-                                                            echo '<span class="badge bg-success text-light">Siap Ajukan Visa</span>';
-                                                        } ?>
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                <?php } else { ?>
-                                    <p>Data Kandidat belum ada.</p>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
+                <div class="section-title">
+                    <h2>Salam, <?= session()->get('nama') ?></h2>
+                    <h5>DATA KANDIDAT ANDA</h5>
                 </div>
-            </div>
+                <div class="row content">
+                    <div class="poin">
+                        <h4>
+                            <!--Saldo Anda : IDR. <?= $kredit->kredit; ?>,- <span class="badge rounded-pill text-bg-dark" data-bs-toggle="modal" data-bs-target="#saldo" style="cursor: pointer;">Info</span><br>-->
+                            Kode Anda : <?= session()->get('kode_user') ?> <span class="badge rounded-pill text-bg-dark" data-bs-toggle="modal" data-bs-target="#kode_koord" style="cursor: pointer;">?</span><br>
+                            <div class="d-flex justify-content-center justify-content-lg-start">
+                                <a href="whatsapp://send?text=Salam Admin ferienjobs, saya membutuhkan informasi, apakah ada waktu untuk konsultasi?.&phone=+6285298649951&abid=+6285298649951'" class="btn btn-success" style="border-radius: 10px;">Hubungi Admin</a>
+                                <button type="submit" id="deleteUser" class="btn btn-danger ms-2" style="border-radius: 10px;">Hapus Akun</button>
+                            </div>
+                        </h4>
+                    </div>
+                    <?php if ($kandidat) { ?>
+                        <table class="table table-bordered display responsive nowrap" id="kandidat" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>WA</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Universitas</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <?php $no = 1;
+                                foreach ($kandidat as $x) { ?>
+                                    <tr>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $x->nama ?></td>
+                                        <td><a href="whatsapp://send?text=Salam <?= $x->nama ?>, Terimakasih telah bergabung di Program Ferienjobs.&phone=+62<?= $x->wa ?>&abid=+62<?= $x->wa ?>" class="btn btn-success btn-sm"><?= $x->wa ?></a></td>
+                                        <td><?= $x->jk ?></td>
+                                        <td><?= $x->universitas ?></td>
+                                        <td><?php if ($x->status_kandidat == 0) {
+                                                echo '<span class="text-danger">SEDANG DIVERIFIKASI</span>';
+                                            } elseif ($x->status_kandidat == 1) {
+                                                echo '<span class="text-danger">1. DATA PENDAFTARAN VALID</span><br>(Menunggu Pembayaran Biaya Pendaftaran)';
+                                            } elseif ($x->status_kandidat == 2) {
+                                                echo '<span class="text-danger">2. BIAYA PENDAFTARAN DITERIMA</span><br>(Menunggu Dokumen dari Kandidat)';
+                                            } elseif ($x->status_kandidat == 3) {
+                                                echo '<span class="text-danger">3. DOKUMEN DITERIMA dan VALID</span><br>(Menunggu Pembayaran Biaya Pengiriman Dokumen dari Kandidat)';
+                                            } elseif ($x->status_kandidat == 4) {
+                                                echo '<span class="text-danger">4. BIAYA PENGIRIMAN DOKUMEN DITERIMA</span><br>(Silahkan proses pengiriman dokumen ke ZAV Jerman)';
+                                            } elseif ($x->status_kandidat == 5) {
+                                                echo '<span class="text-danger">5. DOKUMEN DIKIRIM KE JERMAN</span><br>(Menunggu Approval ZAV Jerman)';
+                                            } elseif ($x->status_kandidat == 6) {
+                                                echo '<span class="text-danger">6. DOKUMEN DISETUJUI ZAV JERMAN</span><br>(Menunggu Pembayaran Dokumen Approval ZAV Jerman dari Kandidat)';
+                                            } else {
+                                                echo '<span class="text-danger">Siap Ajukan Visa</span>';
+                                            } ?>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    <?php     } else { ?>
+                        <p>Data Kandidat belum ada.</p>
+                    <?php } ?>
+
+                </div>
         </section>
 
 
     </main>
     <footer id="footer">
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- <div class="col-lg-6">
+                        <h4>Join Our Newsletter</h4>
+                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <form action="" method="post"> <input type="email" name="email"><input type="submit" value="Subscribe"></form>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6 footer-contact">
+                        <h3>Ferienjobs Indonesia</h3>
+                        <p>Jl. Elang Blok D No.1, BTN Medibrata Indah,
+Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649951<br> <strong>Email:</strong> <a href="#">ami@cv-gen.com</a><br></p>
+                    </div>
+                    <!-- <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Services</h4>
+                        <ul>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                        </ul> 
+                    </div>-->
+                    <div class="col-lg-4 col-md-6 footer-links">
+                        <h4>Media Sosial</h4>
+                        <p>Follow dan ikuti media sosial kami.</p>
+                        <div class="social-links mt-3"> <a href="https://www.facebook.com/cvgenoverseas" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a> <a href="https://www.instagram.com/cvgencom/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a> <a href="https://www.linkedin.com/in/amsulistiani-ensch-85379824/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container footer-bottom clearfix">
             <div class="copyright"> &copy; Copyright <strong><span>cv-gen.com</span></strong>. All Rights Reserved</div>
             <!-- <div class="credits"> Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a></div> -->
@@ -261,7 +290,7 @@
             });
         })
     </script>
-
+    
     <script>
         $(document).ready(function() {
             $('#deleteUser').click(function() {

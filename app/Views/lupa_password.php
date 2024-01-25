@@ -164,8 +164,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-6 footer-contact">
                         <h3>Ferienjobs Indonesia</h3>
-                        <p>Jl. Elang Blok D No.1, BTN Medibrata Indah,
-                            Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649951<br> <strong>Email:</strong> <a href="#">ami@cv-gen.com</a><br></p>
+                        <p><strong>Phone:</strong>+6285298649951<br> <strong>Email:</strong> <a href="#">ami@cv-gen.com</a><br></p>
                     </div>
                     <!-- <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Useful Links</h4>
@@ -190,7 +189,10 @@
                     <div class="col-lg-4 col-md-6 footer-links">
                         <h4>Media Sosial</h4>
                         <p>Follow dan ikuti media sosial kami.</p>
-                        <div class="social-links mt-3"> <a href="https://www.facebook.com/cvgenoverseas" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a> <a href="https://www.instagram.com/cvgencom/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a> <a href="https://www.linkedin.com/in/amsulistiani-ensch-85379824/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a></div>
+                        <div class="social-links mt-3"> <a href="https://www.facebook.com/cvgenoverseas" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a> <a href="https://www.instagram.com/cvgencom/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a> <a href="https://www.linkedin.com/in/amsulistiani-ensch-85379824/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                        </div>
+                        <br>
+                        <h4><a href="<?php echo base_url('/privacy') ?>">Privacy policy</a></h4>
                     </div>
                 </div>
             </div>

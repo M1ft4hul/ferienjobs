@@ -96,128 +96,128 @@
                 <div class="section-title">
                     <h2>PARTNER FERIENJOBS</h2>
                 </div>
-                <div class="mb-4">
-                    <h4>PARTNER DARI INDONESIA</h4>
-                    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6  g-1">
-                        <div class="col">
-                            <div class="card h-100 m-1 tampil_mobil">
-                                <img src="<?= base_url('assets/img/partner/shb.jpeg') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: cover;" alt="ferienjobs">
-                                <div class="card-body p-2">
-                                    <h5 class="card-title small">Sinar Harapan Bangsaku</h5>
-                                    <p class="card-text mb-0 small">sebagai satu satunya konsultan ferienjobs mahasiswa Indonesia ke Jerman</p>
+                 <div class="mb-4"> 
+                 <h4>PARTNER DARI INDONESIA</h4> 
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6  g-1">
+                    <div class="col">
+                        <div class="card h-100 m-1 tampil_mobil">
+                            <img src="<?= base_url('assets/img/partner/shb.jpeg') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: cover;" alt="ferienjobs">
+                            <div class="card-body p-2">
+                                <h5 class="card-title small">Sinar Harapan Bangsaku</h5>
+                                <p class="card-text mb-0 small">sebagai satu satunya konsultan ferienjobs mahasiswa Indonesia ke Jerman</p>
 
-                                </div>
-                                <div class="card-footer p-1 text-center">
-                                    <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                                    <a href="mailto:germany@sinarharapanbangsaku.com" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
-                                    <a href="https://sinarharapanbangsaku.com/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
-                                </div>
                             </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 m-1 tampil_mobil">
-                                <img src="<?= base_url('assets/img/partner/cvgen.jpeg') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
-                                <div class="card-body p-2">
-                                    <h5 class="card-title small">CV-GEN</h5>
-                                    <p class="card-text mb-0 small">sebagai partner koordinator universitas dan mahasiswa di Indonesia</p>
-
-                                </div>
-                                <div class="card-footer p-1 text-center">
-                                    <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+                            <div class="card-footer p-1 text-center">
+                                <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
                             <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                                    <a href="mailto:ami@cv-gen.com" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
-                                    <a href="https://www.cv-gen.com/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 m-1 tampil_mobil">
-                                <img src="<?= base_url('assets/img/partner/timur.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
-                                <div class="card-body p-2">
-                                    <h5 class="card-title small">Universitas Indonesia Timur</h5>
-                                    <p class="card-text mb-0 small">Universitas Partner</p>
-
-                                </div>
-                                <div class="card-footer p-1 text-center">
-                                    <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                                    <a href="mailto:info@uit.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
-                                    <a href="https://uit.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 m-1 tampil_mobil">
-                                <img src="<?= base_url('assets/img/partner/uho.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
-                                <div class="card-body p-2">
-                                    <h5 class="card-title small">Universitas Halu Oleo</h5>
-                                    <p class="card-text mb-0 small">Universitas Penyangga</p>
-
-                                </div>
-                                <div class="card-footer p-1 text-center">
-                                    <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                                    <a href="mailto:info@uho.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
-                                    <a href="https://uho.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 m-1 tampil_mobil">
-                                <img src="<?= base_url('assets/img/partner/alaudin.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
-                                <div class="card-body p-2">
-                                    <h5 class="card-title small">Universitas Islam Negeri Alauddin Makassar</h5>
-                                    <p class="card-text mb-0 small">Universitas Penyangga</p>
-
-                                </div>
-                                <div class="card-footer p-1 text-center">
-                                    <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                                    <a href="mailto:kontak@uin-alauddin.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
-                                    <a href="https://uin-alauddin.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 m-1 tampil_mobil">
-                                <img src="<?= base_url('assets/img/partner/unifa.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
-                                <div class="card-body p-2">
-                                    <h5 class="card-title small">Universitas Fajar</h5>
-                                    <p class="card-text mb-0 small">Universitas Penyangga</p>
-
-                                </div>
-                                <div class="card-footer p-1 text-center">
-                                    <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                                    <a href="mailto:info@unifa.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
-                                    <a href="https://unifa.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 m-1 tampil_mobil">
-                                <img src="<?= base_url('assets/img/partner/binawan.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
-                                <div class="card-body p-2">
-                                    <h5 class="card-title small">Universitas Binawan</h5>
-                                    <p class="card-text mb-0 small">Universitas Partner</p>
-
-                                </div>
-                                <div class="card-footer p-1 text-center">
-                                    <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                                    <a href="mailto:pmb@binawan.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
-                                    <a href="https://pmb.binawan.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
-                                </div>
+                                <a href="mailto:germany@sinarharapanbangsaku.com" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://sinarharapanbangsaku.com/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="mb-4">
+                    <div class="col">
+                        <div class="card h-100 m-1 tampil_mobil">
+                            <img src="<?= base_url('assets/img/partner/cvgen.jpeg') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
+                            <div class="card-body p-2">
+                                <h5 class="card-title small">CV-GEN</h5>
+                                <p class="card-text mb-0 small">sebagai partner koordinator universitas dan mahasiswa di Indonesia</p>
+
+                            </div>
+                            <div class="card-footer p-1 text-center">
+                                <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
+                                <a href="mailto:ami@cv-gen.com" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://www.cv-gen.com/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 m-1 tampil_mobil">
+                            <img src="<?= base_url('assets/img/partner/timur.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
+                            <div class="card-body p-2">
+                                <h5 class="card-title small">Universitas Indonesia Timur</h5>
+                                <p class="card-text mb-0 small">Universitas Partner</p>
+
+                            </div>
+                            <div class="card-footer p-1 text-center">
+                                <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
+                                <a href="mailto:info@uit.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://uit.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 m-1 tampil_mobil">
+                            <img src="<?= base_url('assets/img/partner/uho.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
+                            <div class="card-body p-2">
+                                <h5 class="card-title small">Universitas Halu Oleo</h5>
+                                <p class="card-text mb-0 small">Universitas Penyangga</p>
+
+                            </div>
+                            <div class="card-footer p-1 text-center">
+                                <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
+                                <a href="mailto:info@uho.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://uho.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 m-1 tampil_mobil">
+                            <img src="<?= base_url('assets/img/partner/alaudin.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
+                            <div class="card-body p-2">
+                                <h5 class="card-title small">Universitas Islam Negeri Alauddin Makassar</h5>
+                                <p class="card-text mb-0 small">Universitas Penyangga</p>
+
+                            </div>
+                            <div class="card-footer p-1 text-center">
+                                <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
+                                <a href="mailto:kontak@uin-alauddin.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://uin-alauddin.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 m-1 tampil_mobil">
+                            <img src="<?= base_url('assets/img/partner/unifa.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
+                            <div class="card-body p-2">
+                                <h5 class="card-title small">Universitas Fajar</h5>
+                                <p class="card-text mb-0 small">Universitas Penyangga</p>
+
+                            </div>
+                            <div class="card-footer p-1 text-center">
+                                <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
+                                <a href="mailto:info@unifa.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://unifa.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 m-1 tampil_mobil">
+                            <img src="<?= base_url('assets/img/partner/binawan.png') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
+                            <div class="card-body p-2">
+                                <h5 class="card-title small">Universitas Binawan</h5>
+                                <p class="card-text mb-0 small">Universitas Partner</p>
+
+                            </div>
+                            <div class="card-footer p-1 text-center">
+                                <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
+                                <a href="mailto:pmb@binawan.ac.id" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://pmb.binawan.ac.id/" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                     </div>
+                    </div>
+                    <div class="mb-4">
                     <h4>PARTNER DARI JERMAN</h4>
                     <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6  g-1">
-
-                        <!--
+                    
+                    <!--
                      <div class="col">
                         <div class="card h-100 m-1 tampil_mobil">
                             <img src="<//?= base_url('assets/img/partner/unistaff.jpeg') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
@@ -229,7 +229,7 @@
                             <div class="card-footer p-1 text-center">
                                 <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
                             <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                        <!-- <a href="https://ferienjobs.cv-gen.com/login" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
+                                <!-- <a href="https://ferienjobs.cv-gen.com/login" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
                                 <a href="https://ferienjobs.cv-gen.com/login" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
                             </div>
                         </div>
@@ -246,7 +246,7 @@
                             <div class="card-footer p-1 text-center">
                                 <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
                             <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                        <!--
+                            <!--
                                 <a href="https://ferienjobs.cv-gen.com/login" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
                                 <a href="https://ferienjobs.cv-gen.com/login" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
                             </div>
@@ -263,7 +263,7 @@
                             <div class="card-footer p-1 text-center">
                                 <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
                             <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                        <!--
+                            <!--
                                 <a href="https://ferienjobs.cv-gen.com/login" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
                                 <a href="https://ferienjobs.cv-gen.com/login" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
                             </div>
@@ -271,44 +271,44 @@
                     </div>
                     
                     <!--<div class="col">-->
-                        <!--    <div class="card h-100 m-1 tampil_mobil">-->
-                        <!--        <img src="" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">-->
-                        <!--        <div class="card-body p-2">-->
-                        <!--            <h5 class="card-title small">Runtime GmbH</h5>-->
-                        <!--            <p class="card-text mb-0 small">Sebagai perusahaan pemberi kerja di Jerman</p>-->
+                    <!--    <div class="card h-100 m-1 tampil_mobil">-->
+                    <!--        <img src="" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">-->
+                    <!--        <div class="card-body p-2">-->
+                    <!--            <h5 class="card-title small">Runtime GmbH</h5>-->
+                    <!--            <p class="card-text mb-0 small">Sebagai perusahaan pemberi kerja di Jerman</p>-->
 
-                        <!--        </div>-->
-                        <!--        <div class="card-footer p-1 text-center">-->
-                        <!--             <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>-->
-                        <!--        <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                        <!--            <a href="https://ferienjobs.cv-gen.com/login" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>-->
-                        <!--            <a href="https://ferienjobs.cv-gen.com/login" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>-->
-                        <!--        </div>-->
-                        <!--    </div>-->
-                        <!--</div>-->
+                    <!--        </div>-->
+                    <!--        <div class="card-footer p-1 text-center">-->
+                    <!--             <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>-->
+                    <!--        <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
+                    <!--            <a href="https://ferienjobs.cv-gen.com/login" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>-->
+                    <!--            <a href="https://ferienjobs.cv-gen.com/login" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
+                    
+                    <div class="col">
+                        <div class="card h-100 m-1 tampil_mobil">
+                            <img src="<?= base_url('assets/img/partner/lsc.jpeg') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
+                            <div class="card-body p-2">
+                                <h5 class="card-title small">Mina Mulia (Life & Study Coach)</h5>
+                                <p class="card-text mb-0 small">Penulis Buku <strong>Willkomen</strong></p>
 
-                        <div class="col">
-                            <div class="card h-100 m-1 tampil_mobil">
-                                <img src="<?= base_url('assets/img/partner/lsc.jpeg') ?>" class="card-img-top" style="width: 100%; height: 150px; object-fit: fill;" alt="ferienjobs">
-                                <div class="card-body p-2">
-                                    <h5 class="card-title small">Mina Mulia (Life & Study Coach)</h5>
-                                    <p class="card-text mb-0 small">Penulis Buku <strong>Willkomen</strong></p>
-
-                                </div>
-                                <div class="card-footer p-1 text-center">
-                                    <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
+                            </div>
+                            <div class="card-footer p-1 text-center">
+                                <!-- <a href="#" class="btn btn-primary"><i class="bi bi-facebook"></i></a>
                             <a href="#" class="btn btn-primary"><i class="bi bi-telephone-fill"></i></a> -->
-                                    <a href="https://ferienjobs.cv-gen.com/login" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
-                                    <a href="https://ferienjobs.cv-gen.com/login" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
-                                </div>
+                                <a href="https://ferienjobs.cv-gen.com/login" class="btn btn-primary"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://ferienjobs.cv-gen.com/login" target="_blank" class="btn btn-primary"><i class="bi bi-globe"></i></a>
                             </div>
                         </div>
-                    </div> <br> <br> <br>
-                    <div class="mb-4">
-                        <h4><a href="https://drive.google.com/file/d/1Xc6Uyz8nKHzYNjwyTwwlTI9K0C5EQI0X/view?usp=sharing" target="_blank">KLIK DI SINI UNTUK MENJADI UNIVERSITAS PARTNER</a></h4>
                     </div>
+                </div> <br> <br> <br>
+                <div class="mb-4"> 
+                 <h4><a href="https://drive.google.com/file/d/1Xc6Uyz8nKHzYNjwyTwwlTI9K0C5EQI0X/view?usp=sharing" target="_blank">KLIK DI SINI UNTUK MENJADI UNIVERSITAS PARTNER</a></h4>
+            </div>
 
-                    <!-- <div class="row content">
+            <!-- <div class="row content">
                 <div class="col-lg-6">
                     <h3>1. Partner di Indonesia</h3>
                     <p><strong>SHB (Sinar Harapan bangsaku)</strong> sebagai satu satunya konsultan ferienjobs mahasiswa Indonesia ke Jerman</p>
@@ -379,7 +379,7 @@
                     <div class="col-lg-8 col-md-6 footer-contact">
                         <h3>Ferienjobs Indonesia</h3>
                         <p>Jl. Elang Blok D No.1, BTN Medibrata Indah,
-                            Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649951<br> <strong>Email:</strong> <a href="#">ami@cv-gen.com</a><br></p>
+Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649951<br> <strong>Email:</strong> <a href="#">ami@cv-gen.com</a><br></p>
                     </div>
                     <!-- <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Useful Links</h4>
@@ -404,7 +404,8 @@
                     <div class="col-lg-4 col-md-6 footer-links">
                         <h4>Media Sosial</h4>
                         <p>Follow dan ikuti media sosial kami.</p>
-                        <div class="social-links mt-3"> <a href="https://www.facebook.com/cvgenoverseas" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a> <a href="https://www.instagram.com/cvgencom/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a> <a href="https://www.linkedin.com/in/amsulistiani-ensch-85379824/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a></div>
+                        <div class="social-links mt-3"> <a href="https://www.facebook.com/cvgenoverseas" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a> <a href="https://www.instagram.com/cvgencom/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a> <a href="https://www.linkedin.com/in/amsulistiani-ensch-85379824/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                        </div>
                         <br>
                         <h4><a href="<?php echo base_url('/privacy') ?>">Privacy policy</a></h4>
                     </div>

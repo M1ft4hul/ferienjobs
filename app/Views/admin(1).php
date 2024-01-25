@@ -59,10 +59,9 @@
             <h1 class="logo me-auto"><a href="/">FERIENJOBS<br><small style="font-size: .8rem;">Kerja di Musim Liburan</small></a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto " href="<?= base_url('/admin') ?>">Home</a></li>
+                    <li><a class="nav-link scrollto " href="<?= base_url('/') ?>">Home</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/data-kandidat') ?>">Kandidat</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/data-koordinator') ?>">Koordinator</a></li>
-                    <li><a class="nav-link scrollto" href="<?= base_url('/profile-admin') ?>">Profile</a></li>
                     <li><a class="getstarted scrollto" href="<?= base_url() ?>/logout">Logout</a></li>
                 </ul> <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -82,13 +81,16 @@
             </div>
     </section>
     <main id="main">
-        <section class="about" style="margin-top: 60px;">
+        <section id="clients" class="clients section-bg">
+
+        </section>
+        <section class="about">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>Salam, <?php echo $user['nama']; ?></h2>
+                    <h2>Salam, <?= session()->get('nama'); ?></h2>
                 </div>
                 <div class="row content">
-                    <p> Selamat datang, <strong><?php echo $user['nama']; ?></strong>
+                    <p> Selamat datang, <strong><?= session()->get('nama'); ?></strong>
                     </p><br>
                     <p>Sebagai Admin, anda memiliki tugas untuk melakukan verifikasi terhadap seluruh user atau akun terdaftar. Anda memiliki hak penuh untuk, menonaktifkan dan mengaktifkan akun.</p>
                     <p>Untuk calon Kandidat, ada 3 level yang dapat Anda verifikasi</p>
@@ -103,11 +105,22 @@
                         <a href="<?= base_url() ?>/data-kandidat" class="btn btn-primary">Cek Kandidat</a> | <a href="<?= base_url() ?>/data-koordinator" class="btn btn-primary">Cek Koordinator</a>
                     </p>
                 </div>
-            </div>
         </section>
+
+
     </main>
     <footer id="footer">
-
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- <div class="col-lg-6">
+                        <h4>Join Our Newsletter</h4>
+                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <form action="" method="post"> <input type="email" name="email"><input type="submit" value="Subscribe"></form>
+                    </div> -->
+                </div>
+            </div>
+        </div>
         <div class="footer-top">
             <div class="container">
                 <div class="row">

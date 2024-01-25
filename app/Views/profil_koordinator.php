@@ -54,7 +54,7 @@
                     <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#about">Tentang</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#why-us">Keuntungan</a></li>
                     <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
-                    <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#team">Tim</a></li>
+                    <!--<li><a class="nav-link scrollto" href="<?= base_url('/') ?>#team">Tim</a></li>-->
                     <li><a class="nav-link scrollto" href="<?= base_url() ?>/partner">Partner</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#faq">FAQ</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url() ?>/dokumen">Dokumen</a></li>
@@ -90,8 +90,25 @@
         </section>
         <section class="about">
             <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Profile</h2>
+                </div>
+                <!-- allert -->
+                <?php session()->getFlashdata('errors');
+
+                if (session()->getFlashdata('editProfil')) {
+                    echo '<div id="alert" class="alert alert-success alert-dismissible fade show">
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                            </svg>
+                            <strong>Berhasil!</strong>';
+                    echo session()->getFlashdata('editProfil');
+                    echo '</div>';
+                }
+
+                ?>
+                <!-- row -->
                 <div class="row gutters-sm">
-                    <!-- kotak nama -->
                     <div class="col-md-4 mb-3">
                         <div class="card">
                             <div class="card-body">
@@ -120,71 +137,44 @@
                             </div>
                         </div>
                     </div>
-                    <!-- status -->
                     <div class="col-md-8">
-                        <div class="mb-4">
-                            <div class="poin">
-                                <h4>
-                                    <!--Saldo Anda : IDR. </?= $kredit->kredit; ?>,- <span class="badge rounded-pill text-bg-dark" data-bs-toggle="modal" data-bs-target="#saldo" style="cursor: pointer;">Info</span><br>-->
-                                    Kode Anda : <?= session()->get('kode_user') ?> <span class="badge rounded-pill text-bg-dark" data-bs-toggle="modal" data-bs-target="#kode_koord" style="cursor: pointer;">?</span><br>
-                                    <div style="margin-top: 10px;" class="d-flex justify-content-center justify-content-lg-start">
-                                        <a href="whatsapp://send?text=Salam Admin ferienjobs, saya membutuhkan informasi, apakah ada waktu untuk konsultasi?.&phone=+6285298649951&abid=+6285298649951'" class="btn btn-success" style="border-radius: 10px;">Hubungi Admin</a>
-                                        <button type="submit" id="deleteUser" class="btn btn-danger ms-2" style="border-radius: 10px;">Hapus Akun</button>
-                                    </div>
-                                </h4>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 25px; text-align: center;">Data Kandidat Anda</h4>
-                        <!-- tabel kandidat -->
-                        <div class="mb-3">
-                            <div class="row">
-                                <?php if ($kandidat) { ?>
-                                    <table class="table table-bordered display responsive nowrap" id="kandidat" width="100%">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>WA</th>
-                                                <th>Jenis Kelamin</th>
-                                                <th>Universitas</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <?php $no = 1;
-                                            foreach ($kandidat as $x) { ?>
-                                                <tr>
-                                                    <td><?= $no++ ?></td>
-                                                    <td><?= $x->nama ?></td>
-                                                    <td><a href="whatsapp://send?text=Salam <?= $x->nama ?>, Terimakasih telah bergabung di Program Ferienjobs.&phone=+62<?= $x->wa ?>&abid=+62<?= $x->wa ?>" class="btn btn-success btn-sm"><?= $x->wa ?></a></td>
-                                                    <td><?= $x->jk ?></td>
-                                                    <td><?= $x->universitas ?></td>
-                                                    <td><?php if ($x->status_kandidat == 0) {
-                                                            echo '<span class="badge bg-danger text-light"> SEDANG DIVERIFIKASI</span>';
-                                                        } elseif ($x->status_kandidat == 1) {
-                                                            echo '<span class="badge bg-info text-light">1. DATA PENDAFTARAN VALID</span><br><span class="text-info">(Menunggu Pembayaran Biaya Pendaftaran)</span>';
-                                                        } elseif ($x->status_kandidat == 2) {
-                                                            echo '<span class="badge bg-success text-light">2. BIAYA PENDAFTARAN DITERIMA</span><br><span class="text-success">(Menunggu Dokumen dari Kandidat)</span>';
-                                                        } elseif ($x->status_kandidat == 3) {
-                                                            echo '<span class="badge bg-warning text-light">3. DOKUMEN DITERIMA dan VALID</span><br><span class="text-warning">(Menunggu Pembayaran Biaya Pengiriman Dokumen dari Kandidat)</span>';
-                                                        } elseif ($x->status_kandidat == 4) {
-                                                            echo '<span class="badge bg-primary text-light">4. BIAYA PENGIRIMAN DOKUMEN DITERIMA</span><br><span class="text-primary">(Silahkan proses pengiriman dokumen ke ZAV Jerman)</span>';
-                                                        } elseif ($x->status_kandidat == 5) {
-                                                            echo '<span class="badge bg-secondary text-light">5. DOKUMEN DIKIRIM KE JERMAN</span><br><span class="text-secondary">(Menunggu Approval ZAV Jerman)</span>';
-                                                        } elseif ($x->status_kandidat == 6) {
-                                                            echo '<span class="badge bg-warning text-dark">6. DOKUMEN DISETUJUI ZAV JERMAN</span><br><span class="text-warning">(Menunggu Pembayaran Dokumen Approval ZAV Jerman dari Kandidat)</span>';
-                                                        } else {
-                                                            echo '<span class="badge bg-success text-light">Siap Ajukan Visa</span>';
-                                                        } ?>
-                                                    </td>
-                                                </tr>
-                                            <?php } ?>
-                                        </tbody>
-                                    </table>
-                                <?php } else { ?>
-                                    <p>Data Kandidat belum ada.</p>
-                                <?php } ?>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <p style="text-align: center;"><b>Edit Profile Koordinator</b></p>
+                                    <hr>
+                                    <form action="<?php echo base_url('update_koordinators/' . $user['id']) ?>" method="post">
+                                        <div class="row mb-3">
+                                            <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Panjang</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" name="nama" value="<?php echo $user['nama'] ?>" class="form-control" id="inputEmail3">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3" class="col-sm-4 col-form-label">Hp/WhatsApp</label>
+                                            <div class="col-sm-7">
+                                                <input type="number" name="wa" value="<?php echo $user['wa'] ?>" class="form-control" id="inputPassword3">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3" class="col-sm-4 col-form-label">Email</label>
+                                            <div class="col-sm-7">
+                                                <input type="email" name="email" value="<?php echo $user['email'] ?>" class="form-control" id="inputPassword3">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="inputPassword3" class="col-sm-4 col-form-label">Password</label>
+                                            <div class="col-sm-7">
+                                                <input type="password" name="password" class="form-control" placeholder="Masukkan Kata Sandi Baru" id="password">
+                                                <span class="mata"><i class="bi bi-eye-fill" id="show_eye"></i></span>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <button type="submit" class="btn btn-primary">Update Data</button>
+                                        |
+                                        <a href="<?php echo base_url('/profil') ?>" type="button" class="btn btn-warning">Kembali</a>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -262,7 +252,7 @@
         })
     </script>
 
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             $('#deleteUser').click(function() {
                 Swal.fire({
@@ -276,11 +266,28 @@
                     cancelButtonText: 'Batal'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location.href = "<?php echo base_url('delete/' . $user['id']) ?>";
+                        window.location.href = "</?php echo base_url('delete/' . $user['id']) ?>";
                     }
                 })
             });
         });
+    </script> -->
+    <script>
+        setTimeout(function() {
+            var alert = document.getElementById('alert');
+            alert.style.display = 'none';
+        }, 3000);
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(function() {
+                $("#show_eye").click(function() {
+                    $(this).toggleClass("bi bi-eye-slash-fill");
+                    var type = $(this).hasClass("bi-eye-slash-fill") ? "text" : "password";
+                    $("#password").attr("type", type);
+                });
+            });
+        })
     </script>
 </body>
 

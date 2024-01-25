@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Models\UserM;
 
 
@@ -13,117 +12,26 @@ class Home extends BaseController
     }
     public function admin()
     {
-        $user = $this->UserM->find(session()->get('id'));
-        $data = [
-            'user' => $user,
-        ];
-        return view('admin', $data);
+        return view('admin');
     }
-
-    public function privacy()
-    {
-        return view('privacy');
-    }
-
     public function data_kandidat()
     {
         $kandidat = $this->UserM->where('level', 1)->orderby('created_at', 'desc')->get()->getResult();
-        $koordinator = $this->UserM->data_koord()->getResult();
-
         $data = [
-            'koordinator' => $koordinator,
             'kandidat' => $kandidat,
         ];
         return view('data_kandidat', $data);
     }
-    
-     public function data_edit_kode_koordinator($id)
-    {
-        $user = $this->UserM->find($id);
-        $koordinator = $this->UserM->data_koord()->getResult();
-        $data = [
-            'user' => $user,
-            'koordinator' => $koordinator,
-        ];
-        return view('admin_kandidat_editKor', $data);
-    }
-
     public function data_koordinator()
     {
         // $koordinator = $this->UserM->where('level', 0)->get()->getResult();
-        $user = $this->UserM->find(session()->get('id'));
-        $userLevel = session()->get('level');
         $koordinator = $this->UserM->data_koord()->getResult();
+
         $data = [
             'koordinator' => $koordinator,
-            'userLevel' => $userLevel,
-            'user' => $user,
         ];
         return view('data_koordinator', $data);
     }
-
-    public function PageProfilAdmin()
-    {
-        $userLevel = session()->get('level');
-        $user = $this->UserM->find(session()->get('id'));
-
-        $aktif = session()->get('aktif');
-        // keterangan data
-        $allData = $this->UserM->findAll();
-        $total_kandidat = $this->UserM->totalSemuaKandidat();
-        $total_koordinator = $this->UserM->totalSemuaKoordinator();
-
-        $data = [
-            'kandidat' => $total_kandidat,
-            'koordinator' => $total_koordinator,
-            'allData' => count($allData),
-            'userLevel' => $userLevel,
-            'user' => $user,
-            'aktif' => $aktif
-        ];
-        return view('profile_admin', $data);
-    }
-
-    public function EditProfil()
-    {
-        $userLevel = session()->get('level');
-        $user = $this->UserM->find(session()->get('id'));
-
-        $aktif = session()->get('aktif');
-        // keterangan data
-        $allData = $this->UserM->findAll();
-        $total_kandidat = $this->UserM->totalSemuaKandidat();
-        $total_koordinator = $this->UserM->totalSemuaKoordinator();
-
-        $data = [
-            'kandidat' => $total_kandidat,
-            'koordinator' => $total_koordinator,
-            'allData' => count($allData),
-            'userLevel' => $userLevel,
-            'user' => $user,
-            'aktif' => $aktif
-        ];
-        return view('profile_admin_edit', $data);
-    }
-
-    public function UpdateProfil($id)
-    {
-        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
-        $nama = strtoupper($this->request->getVar('nama'));
-
-        $data = [
-            'id' => $id,
-            'nama' => $nama,
-            'email' => $this->request->getPost('email'),
-            'password' => $password,
-        ];
-        $this->UserM->editData($data);
-        session()->set('user', $data);
-
-        session()->setFlashdata('editProfil', 'Profil Admin berhasil Di Edit !!!');
-        return redirect()->to(base_url('/profile-admin'));
-    }
-
     public function login()
     {
         return view('login');
@@ -217,7 +125,7 @@ class Home extends BaseController
         }
     }
     // ubah password end
-
+    
     public function koordinator()
     {
         return view('koordinator');
@@ -237,60 +145,21 @@ class Home extends BaseController
     {
         return view('partner');
     }
-
-    // halaman dashboard koordinator
     public function profil()
     {
-        $cekData = $this->UserM->dataKandidat(session()->get('kode_user'));
-        $userLevel = session()->get('level');
-        $user = $this->UserM->find(session()->get('id'));
-        // $cek = $this->UserM->data_kandidat(session()->get('kode_user'))->getResult();
-        // $kredit = $this->UserM->where('kode_user', session()->get('kode_user'))->get()->getRow();
-
+        $cek = $this->UserM->data_kandidat(session()->get('kode_user'))->getResult();
+        $kredit = $this->UserM->where('kode_user',session()->get('kode_user'))->get()->getRow();
         // $total = 0;
         // $total += $kredit->kredit;
-
-        // $user = $this->UserM->find(session()->get('id'));
+        $user = $this->UserM->find(session()->get('id'));
 
         $data = [
             'user' => $user,
-            'kandidat' => $cekData,
-            'userLevel' => $userLevel,
+            'kandidat' => $cek,
+            'kredit' => $kredit,
         ];
         return view('profil', $data);
     }
-
-    public function profileKoordinator()
-    {
-        $user = $this->UserM->find(session()->get('id'));
-        $userLevel = session()->get('level');
-
-        $data = [
-            'userLevel' => $userLevel,
-            'user' => $user,
-        ];
-        return view('profil_koordinator', $data);
-    }
-
-    public function update_koordinatorss($id)
-    {
-        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
-        $nama = strtoupper($this->request->getVar('nama'));
-
-        $data = [
-            'id' => $id,
-            'nama' => $nama,
-            'wa' => $this->request->getPost('wa'),
-            'email' => $this->request->getPost('email'),
-            'password' => $password,
-        ];
-        $this->UserM->editData($data);
-        session()->set('user', $data);
-
-        session()->setFlashdata('editProfil', 'Profil Koordinator berhasil Di Edit !!!');
-        return redirect()->to(base_url('/profileKoordinator'));
-    } 
-
     public function hapusKoordinator($id)
     {
         $data = [
@@ -300,81 +169,19 @@ class Home extends BaseController
         session()->setFlashdata('hapus_berhasil', 'Data Terhapus!');
         return redirect()->to(base_url('/login'));
     }
-    // end halaman dashboard koordinator
-
-    // halaman dashboard kandidat
     public function profil_kandidat()
     {
-        $user = $this->UserM->find(session()->get('id'));
-        $koordinator = $this->UserM->where('kode_user', $user['kode_upline'])->get()->getRow();
-
-        $userLevel = session()->get('level');
+        $dataku = $this->UserM->where('id', session()->get('id'))->get()->getRow();
+        $koordinator = $this->UserM->where('kode_user', $dataku->kode_upline)->get()->getRow();
 
         $data = [
             'koordinator' => $koordinator,
-            'userLevel' => $userLevel,
-            'user' => $user,
-            'validation' => \Config\Services::validation()
+            'dataku' => $dataku,
+            'validation' => \Config\Services::validation(),
         ];
         return view('profil_kandidat', $data);
     }
-
-    // public function profil_kandidat()
-    // {
-    //     $dataku = $this->UserM->where('id', session()->get('id'))->get()->getRow();
-    //     $koordinator = $this->UserM->where('kode_user', $dataku->kode_upline)->get()->getRow();
-
-    //     $data = [
-    //         'koordinator' => $koordinator,
-    //         'dataku' => $dataku,
-    //         'validation' => \Config\Services::validation(),
-    //     ];
-    //     return view('profil_kandidat_copy', $data);
-    // }
-
-    public function profil_data_kandidat()
-    {
-        $user = $this->UserM->find(session()->get('id'));
-        $userLevel = session()->get('level');
-
-        $data = [
-            'userLevel' => $userLevel,
-            'user' => $user,
-        ];
-        return view('profil_kandidat_data', $data);
-    }
-
-    public function UpdateProfilKandidat($id)
-    {
-        $password = password_hash($this->request->getVar('password'), PASSWORD_DEFAULT);
-        $nama = strtoupper($this->request->getVar('nama'));
-
-        $data = [
-            'id' => $id,
-            'nama' => $nama,
-            'wa' => $this->request->getPost('wa'),
-            'email' => $this->request->getPost('email'),
-            'password' => $password,
-        ];
-        $this->UserM->editData($data);
-        session()->set('user', $data);
-
-        session()->setFlashdata('editProfil', 'Profil Kandidat berhasil Di Edit !!!');
-        return redirect()->to(base_url('/profil_data_kandidat'));
-    }
-
-    public function hapusKandidat($id)
-    {
-        $data = [
-            'id' => $id,
-        ];
-        $this->UserM->deleteData($data);
-        session()->setFlashdata('hapus_berhasil', 'Data Terhapus!');
-        return redirect()->to(base_url('/login'));
-    }
-    // end halaman dashboard kandidat
-
-
+    
     public function hapus($id)
     {
         $data = [
@@ -384,7 +191,7 @@ class Home extends BaseController
         session()->setFlashdata('hapus', 'Data Terhapus!');
         return redirect()->to(base_url('/login'));
     }
-
+    
     public function simpan_koordinator()
     {
         $email = $this->request->getVar('email', FILTER_SANITIZE_EMAIL);
@@ -419,121 +226,77 @@ class Home extends BaseController
         $this->session->setFlashdata('pesan', "Berhasil mendaftar, harap menunggu verifikasi.");
         return redirect()->to('/login');
     }
-    // edit status kendidat
-    public function editKandidat($id)
+    public function gantistatus()
     {
-        $data = [
-            'id' => $id,
-            'status_kandidat' => $this->request->getPost('status_kandidat'),
-        ];
-        $this->UserM->editData($data);
-        session()->set('user', $data);
 
-        session()->setFlashdata('editKandidat', 'Status Kandidat berhasil Di Edit !!!');
-        return redirect()->to(base_url('/data-kandidat'));
+        $status = $this->request->getVar('status_user'); //0-2
+        if ($status == '2') {
+            $kredit = '10000';
+        } elseif ($status == '4') {
+            $kredit = '130000';
+        } elseif ($status == '7') {
+            $kredit = '230000';
+        } else {
+            $kredit = '0';
+        }
+        $id = $this->request->getVar('id_userstatus'); //id user kandidat
+        $cek = $this->UserM->where('id', $id)->get()->getRow(); //cek di tabel user
+        if (!$cek) {
+            session()->destroy();
+            return redirect()->to('/');
+        }
+
+        $cek_kandidat = $this->SaldoM->where('id', $id)->get()->getRow();
+
+
+        if (!$cek_kandidat) {
+            $this->SaldoM->insert([
+                'id' => $id,
+                'kode_koord' => $cek->kode_upline,
+                'saldo' => $kredit,
+            ]);
+        } else {
+            $this->SaldoM->save([
+                'id' => $id,
+                'saldo' => $kredit,
+            ]);
+        }
+        $this->UserM->save([
+            'id' => $id,
+            'status_kandidat' => $status,
+        ]);
+
+        $cek_user = $this->UserM->where('kode_user', $cek->kode_upline)->get()->getRow();
+        $hitung = $this->UserM->saldo($cek_user->kode_user)->get()->getRow();
+        $total = 0;
+        $total += $hitung->saldo;
+        $this->UserM->save([
+            'id' => $cek_user->id,
+            'kredit' => $total,
+        ]);
+
+        return redirect()->to('/data-kandidat ');
     }
-    // edit kode koordinator kandidat
-    public function update_kandidat_koord($id)
+    public function gantistatus_koord()
     {
-        $kode_upline = $this->request->getPost('kode_upline');
 
-        $data = [
+
+        $status = $this->request->getVar('status_user');
+        $id = $this->request->getVar('id_userstatus');
+
+        $cek = $this->UserM->where('id', $id)->get()->getRow();
+        if (!$cek) {
+            session()->destroy();
+            return redirect()->to('/');
+        }
+
+        $this->UserM->save([
             'id' => $id,
-            'kode_upline' => $kode_upline,
-        ];
-        $this->UserM->editData($data);
-        session()->set('user', $data);
+            'aktif' => $status,
+        ]);
 
-        session()->setFlashdata('editKandidat', 'Kode Koordinator Kandidat berhasil Di Edit !!!');
-        return redirect()->to(base_url('/data-kandidat'));
+        return redirect()->to('/data-koordinator ');
     }
-    // public function gantistatus()
-    // {
-
-    //     $status = $this->request->getVar('status_user'); //0-2
-    //     if ($status == '2') {
-    //         $kredit = '10000';
-    //     } elseif ($status == '4') {
-    //         $kredit = '130000';
-    //     } elseif ($status == '7') {
-    //         $kredit = '230000';
-    //     } else {
-    //         $kredit = '0';
-    //     }
-    //     $id = $this->request->getVar('id_userstatus'); //id user kandidat
-    //     $cek = $this->UserM->where('id', $id)->get()->getRow(); //cek di tabel user
-    //     if (!$cek) {
-    //         session()->destroy();
-    //         return redirect()->to('/');
-    //     }
-
-    //     $cek_kandidat = $this->SaldoM->where('id', $id)->get()->getRow();
-
-
-    //     if (!$cek_kandidat) {
-    //         $this->SaldoM->insert([
-    //             'id' => $id,
-    //             'kode_koord' => $cek->kode_upline,
-    //             'saldo' => $kredit,
-    //         ]);
-    //     } else {
-    //         $this->SaldoM->save([
-    //             'id' => $id,
-    //             'saldo' => $kredit,
-    //         ]);
-    //     }
-    //     $this->UserM->save([
-    //         'id' => $id,
-    //         'status_kandidat' => $status,
-    //     ]);
-
-    //     $cek_user = $this->UserM->where('kode_user', $cek->kode_upline)->get()->getRow();
-    //     $hitung = $this->UserM->saldo($cek_user->kode_user)->get()->getRow();
-    //     $total = 0;
-    //     $total += $hitung->saldo;
-    //     $this->UserM->save([
-    //         'id' => $cek_user->id,
-    //         'kredit' => $total,
-    //     ]);
-
-    //     return redirect()->to('/data-kandidat ');
-    // }
-
-
-    // ganti status koordinator
-    public function editKoordinator($id)
-    {
-        $data = [
-            'id' => $id,
-            'kode_user' => $this->request->getPost('kode_user'),
-            'aktif' => $this->request->getPost('aktif')
-        ];
-        $this->UserM->editData($data);
-        session()->set('user', $data);
-
-        session()->setFlashdata('editKoordinator', 'Data Status Koordinator berhasil Di Edit !!!');
-        return redirect()->to(base_url('/data-koordinator'));
-    }
-    // public function gantistatus_koord()
-    // {
-    //     $status = $this->request->getVar('status_user');
-    //     $id = $this->request->getVar('id_userstatus');
-
-    //     $cek = $this->UserM->where('id', $id)->get()->getRow();
-    //     if (!$cek) {
-    //         session()->destroy();
-    //         return redirect()->to('/');
-    //     }
-
-    //     $this->UserM->save([
-    //         'id' => $id,
-    //         'aktif' => $status,
-    //     ]);
-
-    //     return redirect()->to('/data-koordinator ');
-    // }
-    // end status koordinator
-
     public function simpan_kandidat()
     {
 
@@ -722,13 +485,13 @@ class Home extends BaseController
 
                 switch ($data->level) {
                     case 0:
-                        return redirect()->to('/profil'); //untuk koordinator
+                        return redirect()->to('/profil');
                         break;
                     case 1:
-                        return redirect()->to('/profil-kandidat'); //untuk kandidat
+                        return redirect()->to('/profil-kandidat');
                         break;
                     case 9:
-                        return redirect()->to('/admin'); //untuk admin
+                        return redirect()->to('/admin');
                         break;
                 }
             } else {
@@ -740,27 +503,21 @@ class Home extends BaseController
             return redirect()->to('/login');
         }
     }
-    public function hapus_kandidat($id)
+    public function hapus_kandidat()
     {
-        $this->UserM->delete($id);
-        session()->setFlashdata('pesan', 'Data Kandidat berhasil dihapus');
+
+        $id = $this->request->getVar('id_hapususer');
+        $hapus_user = $this->UserM->where('id', $id)->get()->getRow();
+
+        if (!$hapus_user) {
+            session()->destroy();
+            return redirect()->to('/');
+        }
+        // $this->UserM->delete(['id' => $id]);
+        $this->UserM->where('id', $id)->delete();
+
         return redirect()->to('/data-kandidat');
     }
-    // public function hapus_kandidat()
-    // {
-
-    //     $id = $this->request->getVar('id_hapususer');
-    //     $hapus_user = $this->UserM->where('id', $id)->get()->getRow();
-
-    //     if (!$hapus_user) {
-    //         session()->destroy();
-    //         return redirect()->to('/');
-    //     }
-    //     // $this->UserM->delete(['id' => $id]);
-    //     $this->UserM->where('id', $id)->delete();
-
-    //     return redirect()->to('/data-kandidat');
-    // }
 
     public function terms()
     {

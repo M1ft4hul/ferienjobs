@@ -21,6 +21,10 @@
     <link href="<?= base_url() ?>/assets/css/style.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.css" />
+
+    <link rel="stylesheet" href="<?php echo base_url() ?>/assets/fstdropdown.css">
+
     <style>
         #hero {
             width: 100%;
@@ -39,19 +43,12 @@
                 text-align: center;
             }
         }
-
-        #footer .footer-newsletter {
-            padding: 10px 0;
-            background: #f3f5fa;
-            text-align: center;
-            font-size: 15px;
-            color: #444444;
-        }
     </style>
 </head>
 
 <body>
     <div class="swal" data-swal="<?= session()->get('pesan'); ?>"></div>
+
 
     <header id="header" class="fixed-top ">
 
@@ -59,7 +56,7 @@
             <h1 class="logo me-auto"><a href="/">FERIENJOBS<br><small style="font-size: .8rem;">Kerja di Musim Liburan</small></a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto " href="<?= base_url('/admin') ?>">Home</a></li>
+                    <li><a class="nav-link scrollto " href="<?= base_url('/') ?>">Home</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/data-kandidat') ?>">Kandidat</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/data-koordinator') ?>">Koordinator</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/profile-admin') ?>">Profile</a></li>
@@ -85,29 +82,50 @@
         <section class="about" style="margin-top: 60px;">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>Salam, <?php echo $user['nama']; ?></h2>
+                    <h2>Edit Data Kode Kandidat</h2>
+                    <!-- <h2>Salam, </?= session()->get('nama') ?></h2> -->
+                    <!-- <p>Data Kandidat Ferienjobs</p> -->
                 </div>
-                <div class="row content">
-                    <p> Selamat datang, <strong><?php echo $user['nama']; ?></strong>
-                    </p><br>
-                    <p>Sebagai Admin, anda memiliki tugas untuk melakukan verifikasi terhadap seluruh user atau akun terdaftar. Anda memiliki hak penuh untuk, menonaktifkan dan mengaktifkan akun.</p>
-                    <p>Untuk calon Kandidat, ada 3 level yang dapat Anda verifikasi</p>
-                    <ol class="ms-3">
-                        <li><strong>Verifikasi</strong> : artinya akun ini masih dalam tahap Verifikasi.</li>
-                        <li><strong>Terverifikasi</strong> : artinya akun ini sudah diverifikasi level 1 (Valid sebagai Mahasiswa terdaftar).</li>
-                        <li><strong>Lolos Berkas</strong> : artinya akun ini sudah diverifikasi level 2 (Lolos Berkas).</li>
-                        <li><strong>Terima Visa</strong> : artinya akun ini sudah diverifikasi level 3 (Mendapat Visa).</li>
-                    </ol>
-                    <p>Pilih dan sesuaikan jenis akun jika Anda telah benar-benar melakukan Verifikasi.</p>
-                    <p class="my-2 pb-4">
-                        <a href="<?= base_url() ?>/data-kandidat" class="btn btn-primary">Cek Kandidat</a> | <a href="<?= base_url() ?>/data-koordinator" class="btn btn-primary">Cek Koordinator</a>
-                    </p>
+                <div class="row gutters-sm">
+                    <div class="col-md-8 mb-3">
+                        <div class="mb-3">
+                            <div class="row">
+                                <form action="<?php echo base_url('update_kandidat_koord/' . $user['id']) ?>" method="post">
+                                    <div class="row mb-3">
+                                        <label for="inputEmail3" class="col-sm-4 col-form-label">Nama Kandidat</label>
+                                        <div class="col-sm-7">
+                                            <span class="badge bg-warning"> <?php echo $user['nama']; ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputPassword3" class="col-sm-4 col-form-label">Kode Koordinator </label>
+                                        <div class="col-sm-7">
+                                            <span class="badge bg-success"> <?php echo $user['kode_upline']; ?></span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label for="inputPassword3" class="col-sm-4 col-form-label">Kode Koordinator Baru</label>
+                                        <div class="col-sm-7">
+                                            <select name="kode_upline" class="form-select">
+                                                <option value="">Kode Koordinator</option>
+                                                <?php foreach ($koordinator as $x) { ?>
+                                                    <option value="<?php echo $x->kode_user; ?>"><?php echo $x->kode_user . ' - ' . $x->nama; ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Update Data</button>
+                                    |
+                                    <a href="<?php echo base_url('/data-kandidat') ?>" type="button" class="btn btn-warning">Kembali</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
     <footer id="footer">
-
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -151,9 +169,37 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
     </footer>
     <div id="preloader"></div> <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+    <!-- </?php foreach ($menus as $item) : ?>
+        <div class="modal fade" id="deleteModal</?= $item['id_menu_utama']; ?>">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Konfirmasi Hapus Menu Utama</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Apakah Anda yakin ingin menghapus menu ini <b> </?= $item['nama_menu']; ?></b> ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <form action="/admin/hapusMenuUtama_delete/</?= $item['id_menu_utama']; ?>" method="post">
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </?php endforeach; ?> -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
+    <script src="<?php echo base_url() ?>/assets/fstdropdown.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
 
     <script src="<?= base_url() ?>/assets/vendor/aos/aos.js"></script>
     <script src="<?= base_url() ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -163,12 +209,9 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
     <script src="<?= base_url() ?>/assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="<?= base_url() ?>/assets/js/main.js"></script>
     <script>
-        const swal = $('.swal').data('swal');
-        if (swal) {
-            Swal.fire({
-                text: swal,
-            })
-        }
+        $(document).ready(function() {
+            $('#mySelect').select2();
+        });
     </script>
 </body>
 

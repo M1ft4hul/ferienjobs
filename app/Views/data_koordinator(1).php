@@ -21,6 +21,8 @@
     <link href="<?= base_url() ?>/assets/css/style.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.css" />
+
     <style>
         #hero {
             width: 100%;
@@ -39,19 +41,12 @@
                 text-align: center;
             }
         }
-
-        #footer .footer-newsletter {
-            padding: 10px 0;
-            background: #f3f5fa;
-            text-align: center;
-            font-size: 15px;
-            color: #444444;
-        }
     </style>
 </head>
 
 <body>
     <div class="swal" data-swal="<?= session()->get('pesan'); ?>"></div>
+
 
     <header id="header" class="fixed-top ">
 
@@ -59,10 +54,9 @@
             <h1 class="logo me-auto"><a href="/">FERIENJOBS<br><small style="font-size: .8rem;">Kerja di Musim Liburan</small></a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto " href="<?= base_url('/admin') ?>">Home</a></li>
+                    <li><a class="nav-link scrollto " href="<?= base_url('/') ?>">Home</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/data-kandidat') ?>">Kandidat</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/data-koordinator') ?>">Koordinator</a></li>
-                    <li><a class="nav-link scrollto" href="<?= base_url('/profile-admin') ?>">Profile</a></li>
                     <li><a class="getstarted scrollto" href="<?= base_url() ?>/logout">Logout</a></li>
                 </ul> <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -82,32 +76,74 @@
             </div>
     </section>
     <main id="main">
-        <section class="about" style="margin-top: 60px;">
+        <section id="clients" class="clients section-bg">
+
+        </section>
+        <section class="about">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>Salam, <?php echo $user['nama']; ?></h2>
+                    <h2>Salam, <?= session()->get('nama') ?></h2>
+                    <p>Data Koordinator Ferienjobs</p>
                 </div>
                 <div class="row content">
-                    <p> Selamat datang, <strong><?php echo $user['nama']; ?></strong>
-                    </p><br>
-                    <p>Sebagai Admin, anda memiliki tugas untuk melakukan verifikasi terhadap seluruh user atau akun terdaftar. Anda memiliki hak penuh untuk, menonaktifkan dan mengaktifkan akun.</p>
-                    <p>Untuk calon Kandidat, ada 3 level yang dapat Anda verifikasi</p>
-                    <ol class="ms-3">
-                        <li><strong>Verifikasi</strong> : artinya akun ini masih dalam tahap Verifikasi.</li>
-                        <li><strong>Terverifikasi</strong> : artinya akun ini sudah diverifikasi level 1 (Valid sebagai Mahasiswa terdaftar).</li>
-                        <li><strong>Lolos Berkas</strong> : artinya akun ini sudah diverifikasi level 2 (Lolos Berkas).</li>
-                        <li><strong>Terima Visa</strong> : artinya akun ini sudah diverifikasi level 3 (Mendapat Visa).</li>
-                    </ol>
-                    <p>Pilih dan sesuaikan jenis akun jika Anda telah benar-benar melakukan Verifikasi.</p>
-                    <p class="my-2 pb-4">
-                        <a href="<?= base_url() ?>/data-kandidat" class="btn btn-primary">Cek Kandidat</a> | <a href="<?= base_url() ?>/data-koordinator" class="btn btn-primary">Cek Koordinator</a>
-                    </p>
+                    <?php if ($koordinator) { ?>
+
+                        <table class="table table-bordered display responsive nowrap" id="kandidat" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Kode</th>
+                                    <th>Nama</th>
+                                    <th>WA</th>
+                                    <th>Email</th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Pekerjaan</th>
+                                    <!--<th>Saldo</th>-->
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($koordinator as $x) { ?>
+                                    <tr>
+                                        <td><?= $x->kode_user ?></td>
+                                        <td><?= $x->nama ?></td>
+                                        <td><a href="whatsapp://send?text=Salam <?= $x->nama ?>, Terimakasih telah bergabung di Program Ferienjobs.&phone=+62<?= $x->wa ?>&abid=+62<?= $x->wa ?>" class="btn btn-success btn-sm"><?= $x->wa ?></a></td>
+                                        <td><?= $x->email ?></td>
+                                        <td><?= $x->jk ?></td>
+                                        <td><?= $x->pekerjaan ?></td>
+                                        <!--<td> $x->kredit </td>-->
+                                        <td><?php if ($x->aktif == 0) {
+                                                echo '<span class="text-success">AKTIF</span>';
+                                            } elseif ($x->aktif == 1) {
+                                                echo '<span class="text-danger">NONAKTIF</span>';
+                                            } else {
+                                                echo '<span class="text-danger">AKUN PALSU</span>';
+                                            } ?></td>
+                                        <td><button type="button" class="btn btn-primary" onclick="ganti_status('<?= $x->id ?>')">GANTI STATUS</button></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    <?php } else {
+                        echo 'Belum ada data kandidat';
+                    } ?>
                 </div>
-            </div>
         </section>
+
+
     </main>
     <footer id="footer">
-
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <!-- <div class="col-lg-6">
+                        <h4>Join Our Newsletter</h4>
+                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                        <form action="" method="post"> <input type="email" name="email"><input type="submit" value="Subscribe"></form>
+                    </div> -->
+                </div>
+            </div>
+        </div>
         <div class="footer-top">
             <div class="container">
                 <div class="row">
@@ -151,9 +187,44 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
     </footer>
     <div id="preloader"></div> <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+    <form action="<?= base_url() ?>/gantistatus-koord" method="post">
+        <?= csrf_field() ?>
+        <div class="modal fade" id="gantistatus" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Ganti Status</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            Pilih status Akun saat ini.
+                            <!-- <label for="ket" class="form-label">Keterangan</label> -->
+                            <!-- <textarea class="form-control" name="ket" id="ket" cols="30" rows="3"></textarea> -->
+                        </div>
+                        <div class="mb-3">
+                            <!-- <span class="text-success">Tentukan status akun ini:</span> -->
+                            <select class="form-select" aria-label="Default select example" name="status_user">
+                                <option selected disabled>Pilih Jenis</option>
+                                <option value="0">Aktif</option>
+                                <option value="1">Nonaktif</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="id_userstatus" class="onIDstatus">
+                        <button type="submit" class="btn btn-success">Ubah status</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/jszip-2.5.0/dt-1.13.1/b-2.3.3/b-html5-2.3.3/r-2.4.0/datatables.min.js"></script>
 
     <script src="<?= base_url() ?>/assets/vendor/aos/aos.js"></script>
     <script src="<?= base_url() ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -163,6 +234,16 @@ Kota Baubau, Sulawesi Tenggara, 93157<br><br> <strong>Phone:</strong>+6285298649
     <script src="<?= base_url() ?>/assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="<?= base_url() ?>/assets/js/main.js"></script>
     <script>
+        $(document).ready(function() {
+            $('#kandidat').DataTable({
+                responsive: true,
+            });
+        })
+
+        function ganti_status(id) {
+            $(".onIDstatus").val(id);
+            $("#gantistatus").modal('show');
+        }
         const swal = $('.swal').data('swal');
         if (swal) {
             Swal.fire({
