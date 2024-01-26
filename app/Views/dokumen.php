@@ -48,8 +48,8 @@
                     <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#about">Tentang</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#why-us">Keuntungan</a></li>
                     <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
-                    <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#team">Tim</a></li>
-                    <li><a class="nav-link scrollto" href="<?= base_url() ?>/partner">Partner</a></li>
+                    <!-- <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#team">Tim</a></li> -->
+                    <!-- <li><a class="nav-link scrollto" href="<?= base_url() ?>/partner">Partner</a></li> -->
                     <li><a class="nav-link scrollto" href="<?= base_url('/') ?>#faq">FAQ</a></li>
                     <li><a class="nav-link scrollto" href="<?= base_url() ?>/dokumen">Dokumen</a></li>
                     <!--<li><a class="nav-link scrollto" href="<?= base_url('/') ?>#biaya">Biaya</a></li>-->
@@ -173,6 +173,7 @@
                         </div>
                         <br>
                         <h4><a href="<?php echo base_url('/privacy') ?>">Privacy policy</a></h4>
+                        <h4><a href="<?php echo base_url('/imprint') ?>">Imprint</a></h4>
                     </div>
                 </div>
             </div>

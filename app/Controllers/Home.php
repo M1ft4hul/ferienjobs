@@ -25,6 +25,11 @@ class Home extends BaseController
         return view('privacy');
     }
 
+    public function imprint()
+    {
+        return view('imprint');
+    }
+
     public function data_kandidat()
     {
         $kandidat = $this->UserM->where('level', 1)->orderby('created_at', 'desc')->get()->getResult();

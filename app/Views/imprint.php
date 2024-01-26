@@ -88,7 +88,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-                    <h1>Privacy Policy</h1>
+                    <h1>Impressum</h1>
                     <!-- <h2>Adalah dokumen persyaratan bagi kandidat yang akan mengikuti Ferienjobs.</h2> -->
                     <div class="d-flex justify-content-center justify-content-lg-start"><a href="whatsapp://send?text=Salam Admin ferienjobs, saya membutuhkan informasi lengkap terkait menjadi Kandidat Ferienjobs, apakah ada waktu untuk konsultasi?.&phone=+6285298649951&abid=+6285298649951'" class="btn-get-started scrollto">Hubungi Admin</a>
                     </div>
@@ -104,67 +104,32 @@
         <section class="about">
             <div class="container" data-aos="fade-up">
                 <div class="section-title">
-                    <h2>Privacy Policy</h2>
+                    <h2>Owner of the Website</h2>
                 </div>
-                <p>At Ferienjobs, accessible from https://ferienjobs.cv-gen.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Ferienjobs and how we use it.
+                <p class="section-title">Tri Pramedi Agusadharin
+                </p><br><br>
+                <div class="section-title">
+                    <h2>Information About The Company</h2>
+                </div>
+                <p> Jl. Pahlawan No. 1
+                    Kota Baubau,
+                    Sulawesi Tenggara,
+                    Indonesia
+                    <br>
+                    E-Mail: ami@cv-gen.com <br>
+                    E-Mail: tripramedi@gmail.com <br>
+                    Tel. 6285298649951 <br>
+                    Tel. 6285256947201
                 </p>
-                <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
-                </p> <br><br>
-                <div class="section-title">
-                    <h2>Log Files</h2>
-                </div>
-                <p> Ferienjobs follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information. Our Privacy Policy was created with the help of the <a href="https://www.privacypolicyonline.com/privacy-policy-generator/">Privacy Policy Generator</a>.</p>
                 <br><br>
                 <div class="section-title">
-                    <h2>Cookies and Web Beacons</h2>
+                    <h2>INFORMATION ABOUT THE COMPANY REGISTRATION</h2>
                 </div>
-                <p> Like any other website, Ferienjobs uses "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</a>.</p>
-                <br><br>
-                <div class="section-title">
-                    <h2>Cookies and Web Beacons</h2>
-                </div>
-                <p> Like any other website, Ferienjobs uses "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</a>.</p>
-                <p>For more general information on cookies, please read <a href="https://www.privacypolicyonline.com/what-are-cookies/">the "Cookies" article from the Privacy Policy Generator</a>.</p>
-                <br><br>
-                <div class="section-title">
-                    <h2>Privacy Policies</h2>
-                </div>
-                <P>You may consult this list to find the Privacy Policy for each of the advertising partners of Ferienjobs.</p>
-
-                <p>Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on Ferienjobs, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.</p>
-
-                <p>Note that Ferienjobs has no access to or control over these cookies that are used by third-party advertisers.</p>
-                <br><br>
-                <div class="section-title">
-                    <h2>Third Party Privacy Policies</h2>
-                </div>
-                <p> Ferienjobs's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. </p>
-
-                <p>You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites. What Are Cookies?</p>
-                <br><br>
-                <!--<div class="section-title">-->
-                <!--    <h2>Children's Information</h2>-->
-                <!--</div>-->
-                <!--<p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>-->
-
-                <!--<p> Ferienjobs does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>-->
-                <!--<br><br>-->
-                <div class="section-title">
-                    <h2>Children's Information</h2>
-                </div>
-                <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
-
-                <p> Ferienjobs does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
-                <br><br>
-                <div class="section-title">
-                    <h2>Online Privacy Policy Only</h2>
-                </div>
-                <p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Ferienjobs. This policy is not applicable to any information collected offline or via channels other than this website.</p>
-                <br><br>
-                <div class="section-title">
-                    <h2>Consent</h2>
-                </div>
-                <p>By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.</p>
+                <p> Information on online dispute resolution: The EU Commission has created an internet platform for
+                online dispute resolution (so-called “OS platform”). The OS platform serves as a contact point for the
+                out-of-court settlement of disputes regarding contractual obligations arising from online purchase
+                contracts. You can access the OS platform using the following link: <a href="http://ec.euopa.eu/consumers/odr">http://ec.euopa.eu/consumers/odr</a>
+                “Notice in accordance with Section 36 of the Consumer Dispute Settlement Act (VSBG).</a>.</p>
             </div>
         </section>
 

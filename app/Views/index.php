@@ -761,6 +761,7 @@
                         </div>
                         <br>
                         <h4><a href="<?php echo base_url('/privacy') ?>">Privacy policy</a></h4>
+                        <h4><a href="<?php echo base_url('/imprint') ?>">Imprint</a></h4>
                     </div>
                 </div>
             </div>
@@ -800,6 +801,22 @@
                 text: swal,
             })
         }
+    </script>
+
+    <script type="text/javascript" src="//www.privacypolicies.com/public/cookie-consent/4.1.0/cookie-consent.js" charset="UTF-8"></script>
+    <script type="text/javascript" charset="UTF-8">
+        document.addEventListener('DOMContentLoaded', function() {
+            cookieconsent.run({
+                "notice_banner_type": "simple",
+                "consent_type": "express",
+                "palette": "dark",
+                "language": "en",
+                "page_load_consent_levels": ["strictly-necessary"],
+                "notice_banner_reject_button_hide": false,
+                "preferences_center_close_button_hide": false,
+                "page_refresh_confirmation_buttons": false
+            });
+        });
     </script>
 </body>
 

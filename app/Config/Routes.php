@@ -41,6 +41,7 @@ $routes->get('/kandidat', 'Home::kandidat');
 $routes->get('/dokumen', 'Home::dokumen');
 $routes->get('/partner', 'Home::partner');
 $routes->get('/privacy', 'Home::privacy');
+$routes->get('/imprint', 'Home::imprint');
 
 $routes->get('/login', 'Home::login');
 // reset password
